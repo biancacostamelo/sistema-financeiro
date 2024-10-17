@@ -7,7 +7,10 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.3",
+<<<<<<< HEAD
     "create-react-app": "^5.0.1",
+=======
+>>>>>>> b4e21e9e6efbdd9b581be39acf6692f3f47d37f2
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
