@@ -21,6 +21,9 @@ const Sidebar = () => {
     return (
         <>
             <div id="viewport">
+                <div className="navbarmenu">
+                    <input type="text" placeholder="buscar" />
+                </div>
                 <div id="sidebar">
                     <div className="menu">
                         <div className="areaMenu p-3" >
