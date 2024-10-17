@@ -153,13 +153,7 @@ select{
     width: 20px;
     border: none;
 }
-.botãoSub{
-    background-color: #2ED0C0;
-    color: whitesmoke;
-    height: 20px;
-    width: 20px;
-    border: none;
-}
+
 
 body {
   overflow-x: hidden;
