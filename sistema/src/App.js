@@ -2,6 +2,7 @@ import Entradas from './paginas/entradas.jsx'
 import Sidebar from './components/sidebar.jsx'
 import React from 'react'
 import Dashboard from './paginas/dashboard.jsx'
+import Relatorio from './paginas/relatorio.jsx'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Saidas from './paginas/saidas.jsx'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route path='/Saidas'>
             <Saidas />
+          </Route>
+          <Route path='/Relatorio'>
+            <Relatorio />
           </Route>
           <Route path='/'>
             <Dashboard />
