@@ -6,25 +6,12 @@ const Entradas = () => {
             <form>
                 <div className="div p-5">
                     <div className="mb-4">
-                        <h1>Entradas</h1>
+                        <h2>Entradas</h2>
                     </div>
                     <div className="row mb-4">
                         <div className="col-sm-6 r campoLabel">
                             <label htmlFor="categoria" className="label">categoria</label>
                             <select name="categoria" id="categoria" required>
-                                {/* <option value="">Selecione</option>
-                                    <option value="alimentacao">Alimentação</option>
-                                    <option value="moradia">Moradia</option>
-                                    <option value="transporte">Transporte</option>
-                                    <option value="educacao">Educação</option>
-                                    <option value="saude">Saúde</option>
-                                    <option value="lazer_entretenimento">Lazer e entretenimento</option>
-                                    <option value="vestuario">Vestuário</option>
-                                    <option value="tecnologia_comunicacao">Tecnologia e comunicação</option>
-                                    <option value="seguros_protecao">Seguros e proteção</option>
-                                    <option value="impostos_taxas">Impostos e taxas</option>
-                                    <option value="despesas_animais">Despesas com animais de estimação</option>
-                                    <option value="doacoes_caridade">Doações e caridade</option> */}
                                 <option value="">Selecione</option>
                                 <option value="salario">Salário</option>
                                 <option value="freelance">Freelance ou prestação de serviços</option>
@@ -57,7 +44,7 @@ const Entradas = () => {
                     </div>
                     <div className="row">
                         <div className="col-sm-12">
-                            <button className="botaologin"><b>ok</b></button>
+                            <button className="botaologin">Enviar</button>
                         </div>
                     </div>
                 </div>
