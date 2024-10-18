@@ -6,7 +6,7 @@ const Saidas = () => {
             <form>
                 <div className="div p-5">
                     <div className="mb-4">
-                        <h1>Saidas</h1>
+                        <h2>Saidas</h2>
                     </div>
                     <div className="row mb-4">
                         <div className="col-sm-6 r campoLabel">
@@ -50,7 +50,7 @@ const Saidas = () => {
                     </div>
                     <div className="row">
                         <div className="col-sm-12">
-                            <button className="botaologin"><b>ok</b></button>
+                            <button className="botaologin">Enviar</button>
                         </div>
                     </div>
                 </div>
