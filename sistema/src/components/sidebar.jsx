@@ -17,7 +17,7 @@ const Sidebar = () => {
                     menuItem.classList.remove("active");
                 })
 
-                event.currentTarget.classList.add("active");
+                event.currentTarget.classList.add("active")
             });
         });
     }, []);
