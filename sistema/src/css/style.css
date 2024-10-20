@@ -85,6 +85,14 @@ select {
   margin-top: 50px;
 }
 
+.div2 {
+  box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
+  border-radius: 15px;
+  margin-left: 300px;
+  width: 600px;
+  margin-top: 50px;
+}
+
 .botaologin {
   background-color: #6F799F;
   color: rgb(255, 255, 255);
@@ -104,10 +112,10 @@ select {
   border: none;
 }
 
-.iconUser {
+/* .iconUser {
   position: absolute;
-  right: 40px;
-}
+  right: 40px; 
+} */
 
 .mr-5 {
   margin-right: 30px;
@@ -142,6 +150,14 @@ select {
     margin-left: 200px;
     width: auto;
     margin-right: 10px;
+  }
+}
+
+@media (max-width: 980px) {
+  .div2 {
+    margin-left: 200px;
+    margin-right: 50px;
+    width: -moz-available;
   }
 }
 
