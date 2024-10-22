@@ -15,8 +15,8 @@ const Entradas = () => {
             .then(() => {
                 alert('entrada adicionada!')
             })
-            .catch(() => {
-                alert('erro ao cadastrar entrada')
+            .catch((erro) => {
+                alert('erro ao cadastrar entrada', erro)
             })
     }
 
