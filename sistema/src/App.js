@@ -6,6 +6,8 @@ import Relatorio from './paginas/relatorio.jsx'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Saidas from './paginas/saidas.jsx'
 import 'bootstrap/dist/css/bootstrap.css'
+import Tableentradas from './components/tableentradas.jsx'
+import Tablesaidas from './components/tablesaidas.jsx'
 
 function App() {
   return (
@@ -22,10 +24,15 @@ function App() {
           <Route path='/Relatorio'>
             <Relatorio />
           </Route>
-          <Route path='/'>
-            <Dashboard />
+          <Route path='/Tableentradas'>
+            <Tableentradas />
           </Route>
-          
+          <Route path='/Tablesaidas'>
+            <Tablesaidas />
+          </Route>
+          <Route path='/'>
+          <Dashboard />
+          </Route>
         </Switch>
       </Router>
     </>

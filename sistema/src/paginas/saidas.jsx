@@ -36,11 +36,18 @@ const Saidas = () => {
                     </div>
                     <div className="row mb-4">
                         <div className="col-sm-6 campoLabel">
-                        <label htmlFor="pagamento" className="label">pagamento</label>
-                        <input type="date" className="input" />
+                        <label htmlFor="tipoPagamento" className="label">tipo pagamento</label>
+                        <select name="tipoPagamento" id="categoria" required>
+                                <option value="">Selecione</option>
+                                <option value="Pix">Pix</option>
+                                <option value="cartaocredito">Cartão de Crédito</option>
+                                <option value="cartaodebito">Cartão de Débito</option>
+                                <option value="dinheiro">Dinheiro</option>
+                                <option value="outros">Outros</option>
+                            </select>
                         </div>
                         <div className="col-sm-6 campoLabel">
-                            <label htmlFor="data" className="label">data</label>
+                            <label htmlFor="dataSaidas" className="label">data</label>
                             <input type="date" className="input" />
                         </div>
                     </div>
@@ -52,7 +59,7 @@ const Saidas = () => {
                     </div>
                     <div className="row">
                         <div className="col-sm-12">
-                            <button className="botaologin">Enviar</button>
+                            <button className="botao">Enviar</button>
                         </div>
                     </div>
                 </div>

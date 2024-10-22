@@ -1,12 +1,15 @@
-import React from "react";
-import Pesquisa from "../components/pesquisa";
+import React from "react"
+import Pesquisa from "../components/pesquisa"
+import { Link } from "react-router-dom/cjs/react-router-dom"
 
 const Relatorio = () => {
     return (
         <div className="campo">
             <Pesquisa/>
-
             <div className="div2">
+            <h2>Relatório</h2>
+                <Link to='/tableentradas'> <button className="botaoRelatorio mb-3">Entradas</button></Link>
+                <Link to='/tablesaidas'> <button className="botaoRelatorio mb-3">Saidas</button></Link>
                 <table className="table">
                     <thead>
                         <tr>
@@ -21,18 +24,6 @@ const Relatorio = () => {
                             <td  className="p-2">Bianca</td>
                             <td  className="p-2">19</td>
                             <td  className="p-2">Brasil</td>
-                            <td  className="p-2">Brasil</td>
-                        </tr>
-                        <tr>
-                            <td  className="p-2">Lucas</td>
-                            <td  className="p-2">25</td>
-                            <td  className="p-2">Portugal</td>
-                            <td  className="p-2">Brasil</td>
-                        </tr>
-                        <tr>
-                            <td  className="p-2">Ana</td>
-                            <td  className="p-2">30</td>
-                            <td  className="p-2">Canadá</td>
                             <td  className="p-2">Brasil</td>
                         </tr>
                     </tbody>

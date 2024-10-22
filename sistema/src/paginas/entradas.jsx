@@ -1,11 +1,29 @@
-import React from "react"
-import Pesquisa from "../components/pesquisa";
+import React, { useState } from "react"
+import Pesquisa from "../components/pesquisa"
+import axios from "axios"
 
 const Entradas = () => {
+    const [categoria, setCategoria] = useState('')
+    const [preco, setPreco] = useState('')
+    const [data, setData] = useState('')
+    const [descricao, setDescricao] = useState('')
+
+    const Enviardados = (evento) => {
+        evento.preventDefault()
+        const novaEntrada = { categoria, preco, data, descricao }
+        axios.post('http://localhost:3001/entradas', novaEntrada)
+            .then(() => {
+                alert('entrada adicionada!')
+            })
+            .catch(() => {
+                alert('erro ao cadastrar entrada')
+            })
+    }
+
     return (
         <div className="campo">
-            <Pesquisa/>
-            <form>
+            <Pesquisa />
+            <form onSubmit={Enviardados}>
                 <div className="div p-5">
                     <div className="mb-4">
                         <h2>Entradas</h2>
@@ -13,7 +31,7 @@ const Entradas = () => {
                     <div className="row mb-4">
                         <div className="col-md-6 r campoLabel">
                             <label htmlFor="categoria" className="label">categoria</label>
-                            <select name="categoria" id="categoria" required>
+                            <select name="categoria" id="categoria" required value={categoria} onChange={(e) => setCategoria(e.target.value)}>
                                 <option value="">Selecione</option>
                                 <option value="salario">Salário</option>
                                 <option value="freelance">Freelance ou prestação de serviços</option>
@@ -31,22 +49,22 @@ const Entradas = () => {
                         </div>
                         <div className="col-md-6 r campoLabel">
                             <label htmlFor="preco" className="label">preço</label>
-                            <input type="number" />
+                            <input type="number" value={preco} onChange={(e) => setPreco(e.target.value)} />
                         </div>
                     </div>
                     <div className="row mb-4">
                         <div className="col-md-6 campoLabel">
                             <label htmlFor="data" className="label">data</label>
-                            <input type="date" className="input" />
+                            <input type="date" className="input" value={data} onChange={(e) => setData(e.target.value)} />
                         </div>
                         <div className="col-md-6 campoLabel">
                             <label htmlFor="data" className="label">descrição</label>
-                            <input type="text" className="input" />
+                            <input type="text" className="input" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-md-12">
-                            <button className="botaologin">Enviar</button>
+                            <button className="botao" type="submit">Enviar</button>
                         </div>
                     </div>
                 </div>
