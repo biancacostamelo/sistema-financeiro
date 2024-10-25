@@ -11,9 +11,13 @@ const Entradas = () => {
     const Enviardados = (evento) => {
         evento.preventDefault()
         const novaEntrada = { categoria, preco, data, descricao }
-        axios.post('http://localhost:3001/entradas', novaEntrada)
+        axios.post('http://localhost:3005/entradas', novaEntrada)
             .then(() => {
                 alert('entrada adicionada!')
+                setCategoria('')
+                setPreco('')
+                setData('')
+                setDescricao('')
             })
             .catch((erro) => {
                 alert('erro ao cadastrar entrada', erro)
