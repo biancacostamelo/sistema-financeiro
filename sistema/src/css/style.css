@@ -89,7 +89,7 @@ select {
   box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
   border-radius: 15px;
   margin-left: 300px;
-  width: 600px;
+  width: fit-content;
   margin-top: 50px;
 }
 
@@ -131,7 +131,18 @@ select {
 .mr-5 {
   margin-right: 30px;
 }
-
+.pr-5{
+  padding-right: 60px !important;
+  padding-top: 10px !important;
+  vertical-align: middle !important;
+}
+.div3{
+  margin-left: 300px;
+  margin-top: 50px;
+}
+.align-middle {
+  vertical-align: middle;
+}
 .r {
   display: flex;
   flex-direction: column;
@@ -141,6 +152,7 @@ select {
   position: relative;
   position: fixed;
   left: 250px;
+  top: 0px;
   width: 250px;
   height: 100%;
   margin-left: -250px;
