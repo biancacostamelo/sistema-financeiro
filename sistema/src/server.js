@@ -36,7 +36,7 @@
 
     app.post('/saidas', (req, res) => {
         const {categoria, preco, tipoPagamento, dataSaidas, descricao} = req.body
-        const query = 'insert into entradas (categoria, preco, tipoPagamento, dataSaidas, descricao) values (?,?,?,?,?)'
+        const query = 'insert into saidas (categoria, preco, tipoPagamento, dataSaidas, descricao) values (?,?,?,?,?)'
         conexao.query(query, [categoria, preco, tipoPagamento, dataSaidas, descricao], (erro) => {
             if (erro) {
                 res.status(500).send('erro ao inserir saidas')
@@ -46,7 +46,7 @@
         })
     })
 
-    app.get('/todassaidas', (res, req) => {
+    app.get('/todassaidas', (req, res) => {
         const query = 'select * from saidas'
         conexao.query(query, (erro, resultado)=>{
             if (erro) {
@@ -57,7 +57,7 @@
         })
     })
 
-    app.get('/todasentradas', (res, req) => {
+    app.get('/todasentradas', (req, res) => {
         const query = 'select * from entradas'
         conexao.query(query, (erro, resultado)=>{
             if (erro) {
@@ -68,6 +68,6 @@
         })
     })
 
-    app.listen(3001, () => {
+    app.listen(3005, () => {
         console.log('conectado ao servidor')
     })
