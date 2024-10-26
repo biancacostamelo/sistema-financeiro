@@ -254,3 +254,11 @@ select {
   margin-left: 50px;
   margin-right: 20px;
 }
+.dados{
+  display: flex;
+  margin-left: 300px;
+}
+
+.mr-auto{
+  float: right;
+}

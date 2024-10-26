@@ -68,6 +68,17 @@
         })
     })
 
+    app.get('/topgastos', (req, res) => {
+        const query = 'SELECT categoria, preco FROM saidas ORDER BY preco DESC LIMIT 5'
+        conexao.query(query, (erro, resultado)=>{
+            if (erro) {
+            res.status(500).send('erro ao buscar dados') 
+            } else {
+                res.json(resultado)
+            }
+        })
+    })
+
     app.listen(3005, () => {
         console.log('conectado ao servidor')
     })
