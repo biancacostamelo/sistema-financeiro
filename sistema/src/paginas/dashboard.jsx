@@ -38,13 +38,13 @@ const Dashboard = () => {
             <Pesquisa />
             <div className='dados'>
                 <div className="row">
-                        <div className="col-xxl-6 p-3">
+                        <div className="col-xl-6 p-3">
                             <h2>Top 5 maiores gastos por categoria</h2>
                             <div>
                                 <Bar data={topProdutosGastos} options={{ responsive: true }} />
                             </div>
                         </div>
-                        <div className="col-xxl-6 p-3">
+                        <div className="col-xl-6 p-3">
                             <h2>Top 5 maiores gastos por categoria</h2>
                             <div>
                                 <Bar data={topProdutosGastos} options={{ responsive: true }} />
