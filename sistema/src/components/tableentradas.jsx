@@ -18,7 +18,7 @@ const Tableentradas = () => {
 
     return (
         <>
-            <div className="">
+            <div className="campo">
                 <Pesquisa />
                 <div className="div3">
                     <h2>Entradas</h2>

@@ -4,7 +4,7 @@ body {
 }
 
 h2 {
-  color: #5c6486 !important;
+  color: #565d7e !important;
 }
 
 /* From Uiverse.io by alexruix */
@@ -22,10 +22,9 @@ h2 {
   line-height: 28px;
   padding: 0 1rem;
   padding-left: 2.5rem;
-  border: 2px solid transparent;
+  border: 1px solid #d5d5d54a;
   border-radius: 20px;
   outline: none;
-  background-color: #fff;
   color: #0d0c22;
   transition: .3s ease;
 }
@@ -70,9 +69,11 @@ select {
   display: flex;
   flex-direction: column;
   align-items: start;
-  /* background-color: #F8F7FD; */
+ 
 }
-
+.darkmode{
+  background-color: #100f16;
+}
 .input {
   width: 100%;
 }
@@ -106,7 +107,7 @@ select {
 }
 .botaoRelatorio{
   background-color: #6f799f60;
-  color: rgb(69, 60, 73);
+  color: #fff;
   border: none;
   box-shadow: rgba(149, 157, 165, 0.2) 2px 2px 2px;
   font-size: 12pt;
@@ -261,4 +262,12 @@ select {
 
 .mr-auto{
   float: right;
+}
+
+th, td{
+  background-color: transparent !important;
+  color: #565d7e !important;
+}
+tr .darkmode{
+  border-color: #242424 !important;
 }

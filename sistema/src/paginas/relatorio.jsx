@@ -17,7 +17,7 @@ const Relatorio = () => {
 
     return (
         <>
-            <div className="">
+            <div className="campo">
                 <Pesquisa />
                 <div className="div3">
                     <h2>Relatório Entradas</h2>
