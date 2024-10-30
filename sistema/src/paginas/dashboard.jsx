@@ -120,7 +120,7 @@ const Dashboard = () => {
                         </div>
                 </div>
             </div>
-            <div className='dados'>
+            {/* <div className='dados'>
                 <div className="row">
                         <div className="col-xl-4 p-4">
                             <h5>Top 5 maiores gastos</h5>
@@ -141,7 +141,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
