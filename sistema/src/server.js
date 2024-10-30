@@ -79,6 +79,28 @@
         })
     })
 
+    app.get('/topgastosporcategoria', (req, res) => {
+        const query = 'SELECT categoria, SUM(preco) as total FROM saidas GROUP BY categoria ORDER BY total'
+        conexao.query(query, (erro, resultado) => {
+            if (erro) {
+                res.status(500).send('erro ao buscar dados') 
+            } else {
+                res.json(resultado)
+            }
+        })
+    })
+    
+    app.get('/gastosportipopagamento', (req, res) => {
+        const query = 'SELECT tipoPagamento, SUM(preco) as total FROM `saidas` GROUP BY(tipoPagamento)'
+        conexao.query(query, (erro, resultado) => {
+            if (erro) {
+                res.status(500).send('erro ao buscar dados') 
+            } else {
+                res.json(resultado)
+            }
+        })
+    })
+
     app.listen(3005, () => {
         console.log('conectado ao servidor')
     })
