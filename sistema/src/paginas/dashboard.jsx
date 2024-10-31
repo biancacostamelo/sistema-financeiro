@@ -188,6 +188,28 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            {/* <div className='dados'>
+                <div className="row">
+                        <div className="col-xl-4 p-4">
+                            <h5>Top 5 maiores gastos</h5>
+                            <div  style={{ height: '300px' }}>
+                                <Bar data={topProdutosGastos} options={{ responsive: true , maintainAspectRatio: false}} />
+                            </div>
+                        </div>
+                        <div className="col-xl-4 p-4">
+                            <h5>Top 5 maiores gastos por categoria</h5>
+                            <div  style={{ height: '300px' }}>
+                                <Bar data={topGastosCategoria} options={{ responsive: true , maintainAspectRatio: false}} />
+                            </div>
+                        </div>
+                        <div className="col-xl-4 p-4">
+                            <h5>Gastos por Tipo de Pagamento</h5>
+                            <div style={{ height: '300px' }}>
+                                <Pie data={topGastosPag} options={{ responsive: true , maintainAspectRatio: false}} />
+                            </div>
+                        </div>
+                </div>
+            </div> */}
         </div>
     );
 }
