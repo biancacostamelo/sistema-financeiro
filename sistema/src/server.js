@@ -101,6 +101,17 @@
         })
     })
 
+    app.get('/gastosaolongodotempo', (req, res) => {
+        const query = 'SELECT dataSaidas, SUM(preco) as total FROM saidas GROUP BY dataSaidas'
+        conexao.query(query, (erro, resultado) => {
+            if (erro) {
+                res.status(500).send('erro ao buscar dados') 
+            } else {
+                res.json(resultado)
+            }
+        })
+    })
+
     app.listen(3005, () => {
         console.log('conectado ao servidor')
     })
