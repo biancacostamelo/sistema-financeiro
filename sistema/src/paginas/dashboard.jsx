@@ -210,16 +210,16 @@ const Dashboard = () => {
             <Pesquisa />
             <div className='dados pt-4'>
                 <div className="row">
-                    <div className="col-xl-6" style={{ width: '436px' }}>
+                    <div className="col-xl-12" style={{ width: '436px' }}>
                         <div className='border pl-4 pt-3'>
                             <h6>Saldo total</h6>
-                            {saldototal.map((e) => <p>{e['SUM(preco)']}</p>)}
-                        </div>
-                    </div>
-                    <div className="col-xl-6" style={{ width: '436px' }}>
-                        <div className='border pl-4 pt-3'>
-                            <h6>Saldo total</h6>
-                            {saidastotais.map((e) => <p>{e['sum(preco)']}</p>)}
+                            {saldototal.length > 0 && saidastotais.length > 0 ? (
+                                <p>
+                                    {saldototal[0]['SUM(preco)'] - saidastotais[0]['sum(preco)']}
+                                </p>
+                            ) : (
+                                <p>Não há dados suficientes para calcular a subtração.</p>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -230,7 +230,7 @@ const Dashboard = () => {
                         <div className='border p-4'>
                             <h5>Top 5 maiores gastos</h5>
                             <div style={{ height: '300px', width: '380px' }}>
-                                <Bar data={topProdutosGastos} options={{responsive: true, maintainAspectRatio: false, indexAxis: 'y' }} />
+                                <Bar data={topProdutosGastos} options={{ responsive: true, maintainAspectRatio: false, indexAxis: 'y' }} />
                             </div>
                         </div>
                     </div>
