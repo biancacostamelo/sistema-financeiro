@@ -112,6 +112,28 @@
         })
     })
 
+    app.get('/saldototal', (req, res) => {
+        const query = 'SELECT SUM(preco) FROM entradas'
+        conexao.query(query, (erro, resultado) => {
+            if (erro) {
+                res.status(500).send('erro ao buscar saldo total') 
+            } else {
+                res.json(resultado)
+            }
+        })
+    })
+
+    app.get('/saidastotais', (req, res) => {
+        const query = 'SELECT sum(preco) FROM saidas'
+        conexao.query(query, (erro, resultado) => {
+            if (erro) {
+                res.status(500).send('erro ao buscar saidas totais') 
+            } else {
+                res.json(resultado)
+            }
+        })
+    })
+
     app.listen(3005, () => {
         console.log('conectado ao servidor')
     })
