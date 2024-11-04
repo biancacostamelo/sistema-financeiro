@@ -15,65 +15,47 @@ const Dashboard = () => {
     const [saldototal, setSaldototal] = useState([])
     const [saidastotais, setSaidastotais] = useState([])
 
-    useEffect(() => {
-        axios.get('http://localhost:3005/topgastos')
-            .then((resposta) => {
-                setTopgastos(resposta.data)
-            })
-            .catch(() => {
-                alert('erro ao buscar dados')
-            })
-    }, [])
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+
+    const fetchData = async () => {
+        try {
+            const params = { startDate, endDate };
+            const [gastosResponse, categoriasResponse, tipoPagResponse, gastostempoResponse, saldoResponse, saidasResponse] = await Promise.all([
+                axios.get('http://localhost:3005/topgastos', { params }),
+                axios.get('http://localhost:3005/topgastosporcategoria', { params }),
+                axios.get('http://localhost:3005/gastosportipopagamento', { params }),
+                axios.get('http://localhost:3005/gastosaolongodotempo', { params }),
+                axios.get('http://localhost:3005/saldototal', { params }),
+                axios.get('http://localhost:3005/saidastotais', { params }),
+            ]);
+
+            setTopgastos(gastosResponse.data);
+            setTopcategorias(categoriasResponse.data);
+            setTipopag(tipoPagResponse.data);
+            setGastostempo(gastostempoResponse.data);
+            setSaldototal(saldoResponse.data);
+            setSaidastotais(saidasResponse.data);
+
+        } catch (error) {
+            alert('Erro ao buscar dados filtrados');
+            console.error(error);
+        }
+    };
 
     useEffect(() => {
-        axios.get('http://localhost:3005/topgastosporcategoria')
-            .then((resposta) => {
-                setTopcategorias(resposta.data)
-            })
-            .catch(() => {
-                alert('erro ao buscar total por categoria')
-            })
-    }, [])
-
-    useEffect(() => {
-        axios.get('http://localhost:3005/gastosportipopagamento')
-            .then((resposta) => {
-                setTipopag(resposta.data)
-            })
-            .catch(() => {
-                alert('erro ao buscar total por tipo de pagamento')
-            })
-    }, [])
-
-    useEffect(() => {
-        axios.get('http://localhost:3005/gastosaolongodotempo')
-            .then((resposta) => {
-                setGastostempo(resposta.data)
-            })
-            .catch(() => {
-                alert('erro ao buscar total gastos ao longo do tempo')
-            })
-    }, [])
-
-    useEffect(() => {
-        axios.get('http://localhost:3005/saldototal')
-            .then((resposta) => {
-                setSaldototal(resposta.data)
-            })
-            .catch(() => {
-                alert('erro ao buscar saldo total')
-            })
-    }, [])
-
-    useEffect(() => {
-        axios.get('http://localhost:3005/saidastotais')
-            .then((resposta) => {
-                setSaidastotais(resposta.data)
-            })
-            .catch(() => {
-                alert('erro ao buscar saldo total')
-            })
-    }, [])
+        const fetchData = () => {
+            axios.get('http://localhost:3005/topgastos')
+                .then((resposta) => {
+                    setTopgastos(resposta.data)
+                })
+                .catch(() => {
+                    alert('erro ao buscar dados')
+                })
+        }
+        fetchData()
+    }, []) // A lista de dependências continua vazia
+    
 
     const topProdutosGastos = {
         labels: topGastos.map(item => item.categoria),
@@ -209,9 +191,30 @@ const Dashboard = () => {
         <div className='campo'>
             <Pesquisa />
             <div className='dados pt-4'>
-                <div className="row">
-                    <div className="col-xl-12" style={{ width: '436px' }}>
-                        <div className='border pl-4 pt-3'>
+                <div className="row mb-4">
+                    <div className="col-sm-3">
+                        <label>Data Início</label>
+                        <input
+                            type="date"
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="col-sm-3">
+                        <label>Data Fim</label>
+                        <input
+                            type="date"
+                            value={endDate}
+                            onChange={(e) => setEndDate(e.target.value)}
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="col-sm-3">
+                        <button onClick={fetchData} className="btn btn-primary mt-4">Filtrar</button>
+                    </div>
+                    <div className="col-sm-3" style={{ width: '436px' }}>
+                        <div className='border pl-4 pt-3 mt-5'>
                             <h6>Saldo total</h6>
                             {saldototal.length > 0 && saidastotais.length > 0 ? (
                                 <p>
