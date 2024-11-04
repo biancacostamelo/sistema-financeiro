@@ -261,6 +261,7 @@ select {
 }
 .dados{
   display: flex;
+  flex-direction: row;
   margin-left: 300px;
 }
 
