@@ -43,18 +43,18 @@ const Dashboard = () => {
         }
     };
 
-    useEffect(() => {
-        const fetchData = () => {
-            axios.get('http://localhost:3005/topgastos')
-                .then((resposta) => {
-                    setTopgastos(resposta.data)
-                })
-                .catch(() => {
-                    alert('erro ao buscar dados')
-                })
-        }
-        fetchData()
-    }, []) // A lista de dependências continua vazia
+    // useEffect(() => {
+    //     const fetchData = () => {
+    //         axios.get('http://localhost:3005/topgastos')
+    //             .then((resposta) => {
+    //                 setTopgastos(resposta.data)
+    //             })
+    //             .catch(() => {
+    //                 alert('erro ao buscar dados')
+    //             })
+    //     }
+    //     fetchData()
+    // }, []) // A lista de dependências continua vazia
     
 
     const topProdutosGastos = {
