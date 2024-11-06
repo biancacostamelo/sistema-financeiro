@@ -43,18 +43,18 @@ const Dashboard = () => {
         }
     };
 
-    // useEffect(() => {
-    //     const fetchData = () => {
-    //         axios.get('http://localhost:3005/topgastos')
-    //             .then((resposta) => {
-    //                 setTopgastos(resposta.data)
-    //             })
-    //             .catch(() => {
-    //                 alert('erro ao buscar dados')
-    //             })
-    //     }
-    //     fetchData()
-    // }, []) // A lista de dependências continua vazia
+    useEffect(() => {
+        const fetchData = () => {
+            axios.get('http://localhost:3005/topgastos')
+                .then((resposta) => {
+                    setTopgastos(resposta.data)
+                })
+                .catch(() => {
+                    alert('erro ao buscar dados')
+                })
+        }
+        fetchData()
+    }, []) // A lista de dependências continua vazia
     
 
     const topProdutosGastos = {
@@ -214,7 +214,7 @@ const Dashboard = () => {
                         <button onClick={fetchData} className="btn btn-primary mt-4">Filtrar</button>
                     </div>
                     <div className="col-sm-3" style={{ width: '436px' }}>
-                        <div className='border pl-4 pt-3 mt-5'>
+                        <div className='border pl-4 pt-3 mt-4 pr-5'>
                             <h6>Saldo total</h6>
                             {saldototal.length > 0 && saidastotais.length > 0 ? (
                                 <p>
@@ -227,28 +227,28 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <div className='dados pb-5 pt-5'>
+            <div className='dados mb-3 pt-2'>
                 <div className="row">
-                    <div className="col-xl-4">
+                    <div className="col-xxl-4 mb-3">
                         <div className='border p-4'>
                             <h5>Top 5 maiores gastos</h5>
-                            <div style={{ height: '300px', width: '380px' }}>
+                            <div style={{ height: '280px', width: '360px' }}>
                                 <Bar data={topProdutosGastos} options={{ responsive: true, maintainAspectRatio: false, indexAxis: 'y' }} />
                             </div>
                         </div>
                     </div>
-                    <div className="col-xxl-4">
+                    <div className="col-xxl-4 mb-3">
                         <div className='border p-4'>
                             <h5>Total de gastos por data</h5>
-                            <div style={{ height: '300px', width: '380px' }}>
+                            <div style={{ height: '280px', width: '360px' }}>
                                 <Line data={Gastosaolongodotempo} options={{ responsive: true, maintainAspectRatio: false }} />
                             </div>
                         </div>
                     </div>
-                    <div className="col-xxl-4">
+                    <div className="col-xxl-4 mb-3">
                         <div className='border p-4'>
                             <h5>Gastos por Tipo de Pagamento</h5>
-                            <div style={{ height: '300px', width: '380px' }}>
+                            <div style={{ height: '280px', width: '360px' }}>
                                 <Pie data={topGastosPag} options={{ responsive: true, maintainAspectRatio: false }} />
                             </div>
                         </div>
@@ -257,10 +257,10 @@ const Dashboard = () => {
             </div>
             <div className='dados'>
                 <div className="row">
-                    <div className="col-xl-12">
+                    <div className="col-xxl-12">
                         <div className='border p-3'>
-                            <h5 style={{ width: '300px' }}>Gastos por Categoria</h5>
-                            <div style={{ height: '300px', width: '380px' }}>
+                            <h5 style={{ width: '280px' }}>Gastos por Categoria</h5>
+                            <div style={{ height: '280px', width: '360px' }}>
                                 <Bar data={topGastosCategoria} options={{ responsive: true, maintainAspectRatio: false }} />
                             </div>
                         </div>

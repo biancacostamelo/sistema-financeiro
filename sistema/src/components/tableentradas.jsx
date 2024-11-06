@@ -22,8 +22,8 @@ const Tableentradas = () => {
                 <Pesquisa />
                 <div className="div3">
                     <h2>Entradas</h2>
-                    <Link to='/tableentradas'> <button className="botaoRelatorio mb-3">Entradas</button></Link>
-                    <Link to='/tablesaidas'> <button className="botaoRelatorio mb-3">Saidas</button></Link>
+                    <Link to='/tableentradas'> <button className="botaoRelatorio mb-1">Entradas</button></Link>
+                    <Link to='/tablesaidas'> <button className="botaoRelatorio mb-1">Saidas</button></Link>
                 </div>
                 <div className="div2">
                     <table className="table">

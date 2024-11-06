@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useEffect } from "react";
 import '../css/style.css'
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Sidebar = () => {
     useEffect(() => {
@@ -33,7 +34,15 @@ const Sidebar = () => {
                         <Link to='/Dashboard'><button className="areaMenu">● Dashboard</button> </Link>
                     </div>
                     <div className="areaMenu p-3" >
-                        <Link to='/Relatorio'><button className="areaMenu">● Relatório</button></Link>
+                        <button className="areaMenu">
+                            <NavDropdown title="● Relatório" id="navbarScrollingDropdown">
+                                <Link to='/Relatorio'>
+                                    <NavDropdown.Item> <Link to='/Relatorio'>o Relatorio</Link></NavDropdown.Item>
+                                    <NavDropdown.Item> <Link to='/tableentradas'>o Entradas</Link></NavDropdown.Item>
+                                    <NavDropdown.Item> <Link to='/tablesaidas'>o Saídas</Link></NavDropdown.Item>
+                                </Link>
+                            </NavDropdown>
+                        </button>
                     </div>
                 </div>
             </div>

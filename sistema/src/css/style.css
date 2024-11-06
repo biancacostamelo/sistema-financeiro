@@ -2,12 +2,24 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
+p{
+  font-size: 12px;
+}
 .pl-4{
   padding-left: 40px;
 }
 
-h2, h5, h6 {
+h2 {
   color: #565d7e !important;
+  font-size: 25px !important;
+}
+h5{
+  color: #565d7e !important;
+  font-size: 16px !important;
+}
+h6 {
+  color: #565d7e !important;
+  font-size: 15px !important;
 }
 
 .group {
@@ -19,13 +31,15 @@ h2, h5, h6 {
 .border{
   box-shadow: rgba(0, 0, 0, 0.075)2px 5px 10px;
   border-radius: 35px;
+  width: max-content;
+  text-wrap: nowrap !important;
 }
 .pesquisa {
-  width: 500px;
+  width: 375px;
   box-shadow: 0px 3px 6px rgba(41, 2, 66, 0.1);
-  height: 40px;
+  height: 30px;
   line-height: 28px;
-  padding: 0 1rem;
+  padding: 0.1rem;
   padding-left: 2.5rem;
   border: 1px solid #d5d5d54a;
   border-radius: 20px;
@@ -46,8 +60,8 @@ input.pesquisa:hover {
   position: absolute;
   left: 1rem;
   fill: #9e9ea7;
-  width: 1rem;
-  height: 1rem;
+  width:0.75rem;
+  height: 0.75rem;
 }
 
 .menu {
@@ -70,7 +84,7 @@ select {
 }
 
 .campo {
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -85,17 +99,17 @@ select {
 .div {
   box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
   border-radius: 15px;
-  margin-left: 300px;
-  width: 600px;
+  margin-left: 225px;
+  width: 530px;
   margin-top: 50px;
 }
 
 .div2 {
   box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
   border-radius: 15px;
-  margin-left: 300px;
+  margin-left: 225px;
   width: fit-content;
-  margin-top: 50px;
+  margin-top: 37.5px;
 }
 
 .botao {
@@ -118,7 +132,7 @@ select {
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   border-radius: 10px;
-  width: 120px;
+  width: auto;
   margin-right: 25px;
 }
 
@@ -142,7 +156,7 @@ select {
   vertical-align: middle !important;
 }
 .div3{
-  margin-left: 300px;
+  margin-left: 225px;
   margin-top: 50px;
 }
 .align-middle {
@@ -156,11 +170,11 @@ select {
 #sidebar {
   position: relative;
   position: fixed;
-  left: 250px;
+  left: 200px;
   top: 0px;
-  width: 250px;
+  width: 200px;
   height: 100%;
-  margin-left: -250px;
+  margin-left: -200px;
   background: linear-gradient(#5c6486, #717ca7, #7e89b9);
   padding-left: 25px;
   border-radius: 0px 30px 30px 0px;
@@ -168,14 +182,14 @@ select {
 
 @media (max-width: 980px) {
   #sidebar {
-    width: 130px;
+    width: 150px;
     padding-left: 0px;
   }
 }
 
 @media (max-width: 980px) {
   .div {
-    margin-left: 200px;
+    margin-left: 160px;
     width: auto;
     margin-right: 10px;
   }
@@ -183,15 +197,15 @@ select {
 
 @media (max-width: 980px) {
   .div2 {
-    margin-left: 200px;
-    margin-right: 50px;
+    margin-left: 160px;
+    margin-right: 40px;
     width: -moz-available;
   }
 }
 
 @media (max-width: 980px) {
   .ml-2 {
-    margin-left: -50px !important;
+    margin-left: -40px !important;
   }
 }
 
@@ -212,7 +226,12 @@ select {
 @media (max-width: 894px) {
   .iconUser {
     position: static;
-    margin-left: 20px;
+    margin-left: 16px;
+  }
+}
+@media (max-width: 980px) {
+  .navbarmenu {
+    margin-left: 200px !important;
   }
 }
 
@@ -221,14 +240,15 @@ select {
 }
 
 .areaMenu {
-  border-radius: 20px;
+  border-radius: 16px;
   background-color: transparent;
   border: none;
   width: 100%;
   color: #fff;
   text-align: left;
-  overflow: hidden;
-  padding-left: 25px;
+  /* overflow: hidden; */
+  padding-left: 20px;
+  font-size: 14px !important; 
 }
 
 .campoLabel {
@@ -238,8 +258,8 @@ select {
 .label {
   position: absolute;
   top: -10px;
-  margin-left: 15px;
-  background-color: #fff;
+  margin-left: 10px;
+  background-color: #ffffff;
   padding: 0px 10px 0px 10px;
   font-size: 9pt;
   color: #414141;
@@ -253,16 +273,16 @@ select {
 .navbarmenu {
   background-color: transparent;
   width: -moz-available;
-  margin-left: 250px;
+  margin-left: 180px;
 }
 .ml-2 {
-  margin-left: 50px;
-  margin-right: 20px;
+  margin-left: 45px;
+  margin-right: 15px;
 }
 .dados{
   display: flex;
   flex-direction: row;
-  margin-left: 300px;
+  margin-left: 240px;
 }
 
 .mr-auto{
@@ -272,7 +292,22 @@ select {
 th, td{
   background-color: transparent !important;
   color: #565d7e !important;
+  font-size: 14px !important;
 }
 tr .darkmode{
   border-color: #242424 !important;
+}
+.dropdown-menu{
+  background-color: transparent !important;
+  border: none !important;
+  margin-top: 7px !important;
+  overflow: hidden !important;
+}
+.dropdown-menu a{
+  color: white !important;
+  text-decoration: none;
+}
+.dropdown-item:hover{
+  background-color: transparent !important;
+  border-radius: 15px;
 }
