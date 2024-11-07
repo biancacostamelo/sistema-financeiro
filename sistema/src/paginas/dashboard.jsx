@@ -229,7 +229,7 @@ const Dashboard = () => {
             </div>
             <div className='dados mb-3 pt-2'>
                 <div className="row">
-                    <div className="col-xxl-4 mb-3">
+                    <div className="col-xl-4 mb-3">
                         <div className='border p-4'>
                             <h5>Top 5 maiores gastos</h5>
                             <div style={{ height: '280px', width: '360px' }}>
@@ -237,7 +237,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-xxl-4 mb-3">
+                    <div className="col-xl-4 mb-3">
                         <div className='border p-4'>
                             <h5>Total de gastos por data</h5>
                             <div style={{ height: '280px', width: '360px' }}>
@@ -245,7 +245,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-xxl-4 mb-3">
+                    <div className="col-xl-4 mb-3">
                         <div className='border p-4'>
                             <h5>Gastos por Tipo de Pagamento</h5>
                             <div style={{ height: '280px', width: '360px' }}>
@@ -257,7 +257,7 @@ const Dashboard = () => {
             </div>
             <div className='dados'>
                 <div className="row">
-                    <div className="col-xxl-12">
+                    <div className="col-xl-12">
                         <div className='border p-3'>
                             <h5 style={{ width: '280px' }}>Gastos por Categoria</h5>
                             <div style={{ height: '280px', width: '360px' }}>
