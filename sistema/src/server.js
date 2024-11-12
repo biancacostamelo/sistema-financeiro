@@ -150,6 +150,30 @@ app.get('/saidastotais', (req, res) => {
     })
 })
 
+app.delete("/todassaidas/:id", (req, res) => {
+    const trid = req.params.id
+    const query = 'delete from saidas where id = ?'
+    conexao.query(query, [trid], (erro, resultado) => {
+        if (erro) {
+            res.status(500).send('erro')
+        } else {
+            res.json(resultado)
+        }
+    })
+})
+
+app.delete("/todasentradas/:id", (req, res) => {
+    const trid = req.params.id
+    const query = 'delete from entradas where id = ?'
+    conexao.query(query, [trid], (erro, resultado) => {
+        if (erro) {
+            res.status(500).send('erro')
+        } else {
+            res.json(resultado)
+        }
+    })
+})
+
 app.listen(3005, () => {
     console.log('conectado ao servidor')
 })
