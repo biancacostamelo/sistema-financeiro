@@ -29,6 +29,7 @@ const Tableentradas = () => {
                     <table className="table">
                         <thead>
                             <tr>
+                                <th className="pr-5">ID</th>
                                 <th className="pr-5">Categoria</th>
                                 <th className="pr-5">Preço</th>
                                 <th className="pr-5">Data</th>
@@ -40,6 +41,7 @@ const Tableentradas = () => {
                         <tbody>
                             {entradas.map((entradas) => (
                                 <tr key={entradas.id}>
+                                    <th scope="row" className="pr-5">{entradas.id}</th>
                                     <td className="pr-5">{entradas.categoria}</td>
                                     <td className="pr-5">{entradas.preco}</td>
                                     <td className="pr-5">{new Date(entradas.dataEntrada).toLocaleDateString('pt-BR', {
@@ -61,7 +63,7 @@ const Tableentradas = () => {
                                         </div>
                                     </td>
                                     <td className="pr-5"><button className="btn btn-primary mb-2 mt-2 align-middle">modificar</button></td>
-                                    <td className="pr-5"><button className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
+                                    <td className="pr-5"><button onClick={e => Handledelete(entradas.id)} className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
                                 </tr>
                             ))}
 
@@ -71,6 +73,16 @@ const Tableentradas = () => {
             </div>
         </>
     )
+    function Handledelete (id) {
+        const confirm = window.confirm('Deseja apagar o dado?')
+        if (confirm){
+            axios.delete('http://localhost:3005/todasentradas/' + id)
+            .then(res =>{
+                alert('dado apagado com sucesso!')
+                window.location.reload()
+            })
+        }
+    }
 }
 
 export default Tableentradas
