@@ -29,6 +29,7 @@ const Tablesaidas = () => {
                     <table className="table">
                         <thead>
                             <tr>
+                                <th className="pr-5">ID</th>
                                 <th className="pr-5">Categoria</th>
                                 <th className="pr-5">Preço</th>
                                 <th className="pr-5">Data</th>
@@ -40,6 +41,7 @@ const Tablesaidas = () => {
                         <tbody>
                             {saidas.map((saidas) => (
                                 <tr key={saidas.id}>
+                                    <th scope="row" className="pr-5">{saidas.id}</th>
                                     <td className="pr-5">{saidas.categoria}</td>
                                     <td className="pr-5">{saidas.preco}</td>
                                     <td className="pr-5">{new Date(saidas.dataSaidas).toLocaleDateString('pt-BR', {
@@ -61,8 +63,8 @@ const Tablesaidas = () => {
                                             {saidas.descricao}
                                         </div>
                                     </td>
-                                    <td className="pr-5"><button className="btn btn-primary mb-2 mt-2 align-middle">modificar</button></td>
-                                    <td className="pr-5"><button className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
+                                    <td className="pr-5"><button  className="btn btn-primary mb-2 mt-2 align-middle">modificar</button></td>
+                                    <td className="pr-5"><button onClick={e => Handledelete(saidas.id)} className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
                                 </tr>
                             ))}
 
@@ -72,6 +74,16 @@ const Tablesaidas = () => {
             </div>
         </>
     )
+    function Handledelete (id) {
+        const confirm = window.confirm('Deseja apagar o dado?')
+        if (confirm){
+            axios.delete('http://localhost:3005/todassaidas/' + id)
+            .then(res =>{
+                alert('dado apagado com sucesso!')
+                window.location.reload()
+            })
+        }
+    }
 }
 
 export default Tablesaidas
