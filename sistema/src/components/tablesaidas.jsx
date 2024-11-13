@@ -22,8 +22,8 @@ const Tablesaidas = () => {
                 <Pesquisa />
                 <div className="div3">
                     <h2>Saídas</h2>
-                    <Link to='/tableentradas'> <button className="botaoRelatorio mb-1">Entradas</button></Link>
-                    <Link to='/tablesaidas'> <button className="botaoRelatorio mb-1">Saidas</button></Link>
+                    <Link to='/tableentradas'><button className="botaoRelatorio mb-1">Entradas</button></Link>
+                    <Link to='/tablesaidas'><button className="botaoRelatorio mb-1">Saidas</button></Link>
                 </div>
                 <div className="div2">
                     <table className="table">
@@ -63,11 +63,10 @@ const Tablesaidas = () => {
                                             {saidas.descricao}
                                         </div>
                                     </td>
-                                    <td className="pr-5"><button  className="btn btn-primary mb-2 mt-2 align-middle">modificar</button></td>
+                                    <td className="pr-5"><Link to={`/update/${saidas.id}`} className="btn btn-primary mb-2 mt-2 align-middle">modificar</Link></td>
                                     <td className="pr-5"><button onClick={e => Handledelete(saidas.id)} className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
                                 </tr>
                             ))}
-
                         </tbody>
                     </table>
                 </div>
@@ -75,8 +74,8 @@ const Tablesaidas = () => {
         </>
     )
     function Handledelete (id) {
-        const confirm = window.confirm('Deseja apagar o dado?')
-        if (confirm){
+        const confirma = window.confirm('Deseja apagar o dado?')
+        if (confirma){
             axios.delete('http://localhost:3005/todassaidas/' + id)
             .then(res =>{
                 alert('dado apagado com sucesso!')

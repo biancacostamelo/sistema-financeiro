@@ -8,6 +8,7 @@ import Saidas from './paginas/saidas.jsx'
 import 'bootstrap/dist/css/bootstrap.css'
 import Tableentradas from './components/tableentradas.jsx'
 import Tablesaidas from './components/tablesaidas.jsx'
+import Update from './components/update.jsx'
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           <Route path='/Tablesaidas'>
             <Tablesaidas />
           </Route>
+          <Route path='/update/:id'>
+            <Update />  
+          </Route>        
           <Route path='/'>
           <Dashboard />
           </Route>
