@@ -177,10 +177,37 @@ app.delete("/todasentradas/:id", (req, res) => {
 app.put('/update/:id', (req, res)=>{
     const id = req.params.id
     const { categoria, preco, tipoPagamento, dataSaidas, descricao } = req.body
-    const query = 'update saidas set `categoria`= ?, `preco`= ?, `dataSaidas`= ?, `descricao`= ? where id = ?'
+    const query = 'update saidas set `categoria`= ?, `preco`= ?, `tipoPagamento`=?, `dataSaidas`= ?, `descricao`= ? where id = ?'
     conexao.query(query, [categoria, preco, tipoPagamento, dataSaidas, descricao, id], (erro, resultado) => {
         if (erro) {
            res.status(500).send('erro') 
+        } else {
+            res.json(resultado)
+        }
+    })
+})
+
+app.put('/updateentrada/:id', (req, res)=>{
+    const id = req.params.id
+    const { categoria, preco, data, descricao } = req.body
+    const query = 'update entradas set `categoria`= ?, `preco`= ?, `dataEntrada`=?, `descricao`= ? where id = ?'
+    conexao.query(query, [categoria, preco, data, descricao, id], (erro, resultado) => {
+        if (erro) {
+           res.status(500).send('erro') 
+        } else {
+            res.json(resultado)
+        }
+    })
+})
+
+app.get('/detailsentradas/:id', (req, res) => {
+    const id = req.params.id
+    const query = 'SELECT * FROM entradas WHERE id = ?'
+    conexao.query(query, [id], (erro, resultado) => {
+        if (erro) {
+            res.status(500).send('Erro ao buscar dados') 
+        } else if (resultado.length === 0) {
+            res.status(404).json({ mensagem: 'Registro não encontrado' })
         } else {
             res.json(resultado)
         }

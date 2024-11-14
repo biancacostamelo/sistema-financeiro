@@ -62,7 +62,7 @@ const Tableentradas = () => {
                                             {entradas.descricao}
                                         </div>
                                     </td>
-                                    <td className="pr-5"><button className="btn btn-primary mb-2 mt-2 align-middle">modificar</button></td>
+                                    <td className="pr-5"><Link to={`/updateentrada/${entradas.id}`} className="btn btn-primary mb-2 mt-2 align-middle">modificar</Link></td>
                                     <td className="pr-5"><button onClick={e => Handledelete(entradas.id)} className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
                                 </tr>
                             ))}

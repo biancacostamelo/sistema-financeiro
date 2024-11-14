@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 
 const Update = () => {
-    const { id } = useParams()
+    const {id} = useParams()
     const history = useHistory()
 
     const [categoria, setCategoria] = useState('')
@@ -15,7 +15,6 @@ const Update = () => {
     useEffect(() => {
         axios.get(`http://localhost:3005/details/${id}`)
             .then(resposta => {
-                console.log('Dados recebidos do servidor:', resposta.data); 
                 const dados = resposta.data[0]
                 setCategoria(dados.categoria)
                 setPreco(dados.preco)
@@ -46,7 +45,7 @@ const Update = () => {
             <form onSubmit={Handlesubmit}>
                 <div className="div p-5">
                     <div className="mb-4">
-                        <h2>Saídas</h2>
+                        <h2>Modificar Saída</h2>
                     </div>
                     <div className="row mb-4">
                         <div className="col-sm-12 campoLabel">
