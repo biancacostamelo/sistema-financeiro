@@ -24,16 +24,16 @@ const Sidebar = () => {
         <>
             <div id="sidebar">
                 <div className="menu">
-                    <div className="areaMenu p-3" >
+                    <div className="areaMenu pb-2 pt-2 pl-1" >
                         <Link to='/Entradas'><button className="areaMenu">● Entradas</button></Link>
                     </div>
-                    <div className="areaMenu p-3" >
+                    <div className="areaMenu pb-2 pt-2 pl-1" >
                         <Link to='/Saidas'><button className="areaMenu">● Saidas</button></Link>
                     </div>
-                    <div className="areaMenu p-3" >
+                    <div className="areaMenu pb-2 pt-2 pl-1" >
                         <Link to='/Dashboard'><button className="areaMenu">● Dashboard</button> </Link>
                     </div>
-                    <div className="areaMenu p-3" >
+                    <div className="areaMenu pb-2 pt-2 pl-1" >
                         <button className="areaMenu">
                             <NavDropdown title="● Relatório" id="navbarScrollingDropdown">
                                 <Link to='/Relatorio'>
