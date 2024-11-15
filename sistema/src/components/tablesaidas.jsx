@@ -18,7 +18,7 @@ const Tablesaidas = () => {
 
     return (
         <>
-            <div className="campo">
+            <div className="campo" style={{ overflow: 'scroll' }}>
                 <Pesquisa />
                 <div className="div3">
                     <h2>Saídas</h2>
@@ -26,30 +26,30 @@ const Tablesaidas = () => {
                     <Link to='/tablesaidas'><button className="botaoRelatorio mb-1">Saidas</button></Link>
                 </div>
                 <div className="div2">
-                    <table className="table">
+                    <table className="table" >
                         <thead>
                             <tr>
-                                <th className="pr-5">ID</th>
-                                <th className="pr-5">Categoria</th>
-                                <th className="pr-5">Preço</th>
-                                <th className="pr-5">Data</th>
-                                <th className="pr-5">Descrição</th>
-                                <th className="pr-5">Modificar</th>
-                                <th className="pr-5">Deletar</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Preço</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Modificar</th>
+                                <th scope="col">Deletar</th>
                             </tr>
                         </thead>
                         <tbody>
                             {saidas.map((saidas) => (
                                 <tr key={saidas.id}>
-                                    <th scope="row" className="pr-5">{saidas.id}</th>
-                                    <td className="pr-5">{saidas.categoria}</td>
-                                    <td className="pr-5">{saidas.preco}</td>
-                                    <td className="pr-5">{new Date(saidas.dataSaidas).toLocaleDateString('pt-BR', {
+                                    <th scope="row" className="v-a">{saidas.id}</th>
+                                    <td className="v-a">{saidas.categoria}</td>
+                                    <td className="v-a">{saidas.preco}</td>
+                                    <td className="v-a">{new Date(saidas.dataSaidas).toLocaleDateString('pt-BR', {
                                         day: '2-digit',
                                         month: '2-digit',
                                         year: 'numeric'
                                     })}</td>
-                                    <td className="pr-5">
+                                    <td className="v-a">
                                         <div
                                             style={{
                                                 maxWidth: "220px", // Limita a largura
@@ -63,8 +63,8 @@ const Tablesaidas = () => {
                                             {saidas.descricao}
                                         </div>
                                     </td>
-                                    <td className="pr-5"><Link to={`/update/${saidas.id}`} className="btn btn-primary mb-2 mt-2 align-middle">modificar</Link></td>
-                                    <td className="pr-5"><button onClick={e => Handledelete(saidas.id)} className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
+                                    <td className="v-a"><Link to={`/update/${saidas.id}`} className="btn btn-primary mb-2 mt-2 align-middle">modificar</Link></td>
+                                    <td className="v-a"><button onClick={e => Handledelete(saidas.id)} className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
                                 </tr>
                             ))}
                         </tbody>
@@ -73,14 +73,14 @@ const Tablesaidas = () => {
             </div>
         </>
     )
-    function Handledelete (id) {
+    function Handledelete(id) {
         const confirma = window.confirm('Deseja apagar o dado?')
-        if (confirma){
+        if (confirma) {
             axios.delete('http://localhost:3005/todassaidas/' + id)
-            .then(res =>{
-                alert('dado apagado com sucesso!')
-                window.location.reload()
-            })
+                .then(res => {
+                    alert('dado apagado com sucesso!')
+                    window.location.reload()
+                })
         }
     }
 }
