@@ -2,9 +2,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
+
 p{
   font-size: 12px;
 }
+
 .pl-4{
   padding-left: 40px;
 }
@@ -13,10 +15,12 @@ h2 {
   color: #565d7e !important;
   font-size: 25px !important;
 }
+
 h5{
   color: #565d7e !important;
   font-size: 16px !important;
 }
+
 h6 {
   color: #565d7e !important;
   font-size: 15px !important;
@@ -28,12 +32,14 @@ h6 {
   align-items: center;
   position: relative;
 }
+
 .border{
   box-shadow: rgba(0, 0, 0, 0.075)2px 5px 10px;
   border-radius: 35px;
   width: max-content;
   text-wrap: nowrap !important;
 }
+
 .pesquisa {
   width: 375px;
   box-shadow: 0px 3px 6px rgba(41, 2, 66, 0.1);
@@ -84,14 +90,21 @@ select {
 }
 
 .campo {
-  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: start;
 }
+
+.campo2{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
 .darkmode{
   background-color: #100f16;
 }
+
 .input {
   width: 100%;
 }
@@ -123,6 +136,7 @@ select {
   border-radius: 10px;
   width: 100%;
 }
+
 .botaoRelatorio{
   background-color: #6f799f60;
   color: #fff;
@@ -142,26 +156,29 @@ select {
   border: none;
 }
 
-/* .iconUser {
-  position: absolute;
-  right: 40px; 
-} */
-
 .mr-5 {
   margin-right: 30px;
 }
+
 .pr-5{
   padding-right: 60px !important;
   padding-top: 10px !important;
   vertical-align: middle !important;
 }
+
+.v-a{
+  vertical-align: middle !important;
+}
+
 .div3{
   margin-left: 225px;
   margin-top: 50px;
 }
+
 .align-middle {
   vertical-align: middle;
 }
+
 .r {
   display: flex;
   flex-direction: column;
@@ -180,14 +197,53 @@ select {
   border-radius: 0px 30px 30px 0px;
 }
 
-
+.formcadastro{
+  margin-top: 50px;
+  box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
+  border-radius: 15px;
+  margin-left: 225px;
+}
+@media (max-width: 668px) {
+  .formcadastro{
+    box-shadow: rgba(0, 0, 0, 0)0px 0px 0px !important;
+  }
+}
 @media (max-width: 1473px){
-  
+  .areaMenu{
+    width: 90px !important;
+    padding-left: 0px !important;
+  }
+  .dropdown-menu.show{
+    display: flex !important;
+    flex-direction: column;
+    align-items: end;
+  }
+  .dropdown-menu a {
+    color: #565d7e  !important;
+    text-decoration: none;
+  }
+  .formcadastro{
+    width: auto !important;
+    margin-left: 0px;
+    margin-top: 120px;
+  }
+  .campo2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .campo {
     margin-top: 70px !important;
   }
   .dados{
-      margin-left:20px !important;
+      margin-left:5px !important;
+  }
+  .div3{
+    margin-left: 5px;
+  }
+  .div2{
+    margin-left: 5px;
   }
   .group{
     margin-left:20px !important;
@@ -224,27 +280,11 @@ select {
   }
   }
 
-
-/* @media (max-width: 980px) {
-  #sidebar {
-    width: 150px;
-    padding-left: 0px;
-  }
-} */
-
 @media (max-width: 980px) {
   .div {
     margin-left: 160px;
     width: auto;
     margin-right: 10px;
-  }
-}
-
-@media (max-width: 980px) {
-  .div2 {
-    margin-left: 160px;
-    margin-right: 40px;
-    width: -moz-available;
   }
 }
 
@@ -255,36 +295,27 @@ select {
   .campo{
     margin-top: 120px !important;
   }
-  
-}
-
-
-@media (max-width: 980px) {
-  .areaMenu {
-    padding-left: 0px !important;
+  .formcadastro{
+    margin-top: 160px;
   }
-}
-
-@media (max-width: 766px) {
-
-  input,
-  select {
-    width: 100%;
-  }
-}
-
-@media (max-width: 894px) {
   .iconUser {
     position: static;
     margin-left: 16px;
   }
 }
-/* @media (max-width: 980px) {
-  .navbarmenu {
-    margin-left: 200px !important;
-  }
-} */
 
+@media (max-width: 766px) {
+  input, 
+  select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 990px) {
+  .campoLabel {
+    margin-bottom: 19px;
+  }
+}
 .areaMenu.active {
   background-color: #e4e6fa6e;
 }
@@ -293,10 +324,9 @@ select {
   border-radius: 16px;
   background-color: transparent;
   border: none;
-  /* width: 100%; */
+  width: 100%;
   color: #fff;
   text-align: left;
-  /* overflow: hidden; */
   padding-left: 20px;
   font-size: 14px !important; 
 }
@@ -315,11 +345,7 @@ select {
   color: #414141;
 }
 
-@media only screen and (max-width: 990px) {
-  .campoLabel {
-    margin-bottom: 19px;
-  }
-}
+
 .navbarmenu {
   background-color: transparent;
   width: -moz-available;
@@ -354,7 +380,7 @@ tr .darkmode{
   overflow: hidden !important;
 }
 .dropdown-menu a{
-  color: white !important;
+  color: white;
   text-decoration: none;
 }
 .dropdown-item:hover{
