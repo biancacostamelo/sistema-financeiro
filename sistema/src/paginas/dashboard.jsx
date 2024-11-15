@@ -192,7 +192,7 @@ const Dashboard = () => {
             <Pesquisa />
             <div className='dados pt-4'>
                 <div className="row mb-4">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                         <label>Data Início</label>
                         <input
                             type="date"
@@ -201,7 +201,7 @@ const Dashboard = () => {
                             className="form-control"
                         />
                     </div>
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                         <label>Data Fim</label>
                         <input
                             type="date"
@@ -210,45 +210,47 @@ const Dashboard = () => {
                             className="form-control"
                         />
                     </div>
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                         <button onClick={fetchData} className="btn btn-primary mt-4">Filtrar</button>
                     </div>
-                    <div className="col-sm-3" style={{ width: '436px' }}>
-                        <div className='border pl-4 pt-3 mt-4 pr-5'>
-                            <h6>Saldo total</h6>
-                            {saldototal.length > 0 && saidastotais.length > 0 ? (
-                                <p>
-                                    {saldototal[0]['SUM(preco)'] - saidastotais[0]['sum(preco)']}
-                                </p>
-                            ) : (
-                                <p>Não há dados suficientes para calcular a subtração.</p>
-                            )}
+                    <div className='row'>
+                        <div className="col-sm-12" style={{ width: '360px' }}>
+                            <div className='border pl-4 pt-3 mt-4 pr-5' style={{ width: '100%' }}>
+                                <h6>Saldo total</h6>
+                                {saldototal.length > 0 && saidastotais.length > 0 ? (
+                                    <p>
+                                        {saldototal[0]['SUM(preco)'] - saidastotais[0]['sum(preco)']}
+                                    </p>
+                                ) : (
+                                    <p>Não há dados suficientes para calcular a subtração.</p>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div className='dados mb-3 pt-2'>
                 <div className="row">
-                    <div className="col-md-4 mb-3">
+                    <div className="col-sm-4 mb-3" style={{ width: '360px' }}>
                         <div className='border p-4'>
                             <h5>Top 5 maiores gastos</h5>
-                            <div style={{ height: '280px', width: '360px' }}>
+                            <div style={{ height: '280px', width: '100%' }}>
                                 <Bar data={topProdutosGastos} options={{ responsive: true, maintainAspectRatio: false, indexAxis: 'y' }} />
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-4 mb-3">
+                    <div className="col-md-4 mb-3" style={{ width: '360px' }}>
                         <div className='border p-4'>
                             <h5>Total de gastos por data</h5>
-                            <div style={{ height: '280px', width: '360px' }}>
+                            <div style={{ height: '280px', width: '100%' }}>
                                 <Line data={Gastosaolongodotempo} options={{ responsive: true, maintainAspectRatio: false }} />
                             </div>
                         </div>
                     </div>
-                    <div className="col-xl-4 mb-3">
+                    <div className="col-xl-4 mb-3" style={{ width: '360px' }}>
                         <div className='border p-4'>
                             <h5>Gastos por Tipo de Pagamento</h5>
-                            <div style={{ height: '280px', width: '360px' }}>
+                            <div style={{ height: '280px', width: '100%' }}>
                                 <Pie data={topGastosPag} options={{ responsive: true, maintainAspectRatio: false }} />
                             </div>
                         </div>
@@ -257,10 +259,10 @@ const Dashboard = () => {
             </div>
             <div className='dados'>
                 <div className="row">
-                    <div className="col-xxl-12">
+                    <div className="col-xxl-12" style={{ width: '360px' }}>
                         <div className='border p-3'>
                             <h5 style={{ width: '280px' }}>Gastos por Categoria</h5>
-                            <div style={{ height: '280px', width: '360px' }}>
+                            <div style={{ height: '280px', width: '100%' }}>
                                 <Bar data={topGastosCategoria} options={{ responsive: true, maintainAspectRatio: false }} />
                             </div>
                         </div>

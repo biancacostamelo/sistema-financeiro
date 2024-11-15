@@ -25,10 +25,10 @@ const Entradas = () => {
     }
 
     return (
-        <div className="campo">
+        <div className="campo2">
             <Pesquisa />
             <form onSubmit={Enviardados}>
-                <div className="div p-5">
+                <div className="formcadastro p-5">
                     <div className="mb-4">
                         <h2>Entradas</h2>
                     </div>

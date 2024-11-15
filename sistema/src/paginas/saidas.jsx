@@ -28,10 +28,10 @@ const Saidas = () => {
     }
 
     return(
-        <div className="campo">
+        <div className="campo2">
             <Pesquisa/>
             <form onSubmit={Handlesubmit}>
-                <div className="div p-5">
+                <div className="formcadastro p-5">
                     <div className="mb-4">
                         <h2>Saidas</h2>
                     </div>
