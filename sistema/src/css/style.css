@@ -345,6 +345,7 @@ select {
   /* background-color: #e4e6fa6e; */
   background-color: #d5ffe0;
   color: #0c6424;
+  border-radius: 16px 0px 0px 16px;
 }
 
 .areaMenu {
