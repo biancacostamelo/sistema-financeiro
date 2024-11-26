@@ -4,6 +4,9 @@ import Pesquisa from "../components/pesquisa"
 import { Bar, Pie, Line } from 'react-chartjs-2'
 import { format } from 'date-fns'
 import 'chartjs-plugin-datalabels';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChartColumn, faChartLine, faChartPie, faChartBar } from '@fortawesome/free-solid-svg-icons';
+import { faCircleDollarToSlot } from '@fortawesome/free-solid-svg-icons'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, PointElement, LineElement } from 'chart.js';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement, PointElement, LineElement);
 
@@ -55,29 +58,31 @@ const Dashboard = () => {
         }
         fetchData()
     }, []) // A lista de dependências continua vazia
-    
+
 
     const topProdutosGastos = {
         labels: topGastos.map(item => item.categoria),
         datasets: [
             {
-                label: 'Top gastos',
+                label: 'Categoria',
                 data: topGastos.map(item => item.preco),
                 backgroundColor: [
-                    'rgba(43, 253, 95, 0.9)',
-                    'rgba(43, 253, 95, 0.8)',
-                    'rgba(43, 253, 95, 0.7)',
-                    'rgba(43, 253, 95, 0.6)',
-                    'rgba(43, 253, 95, 0.5)',
-                    'rgba(43, 253, 95, 0.4)'
+                    'rgba(0, 51, 102, 1)',        // Cor 1 (Início, azul escuro)
+                    'rgba(18, 72, 106)',     // Cor 3
+                    'rgba(54, 114, 114)',    // Cor 4
+                    'rgba(72, 135, 118)',    // Cor 7
+                    'rgba(126, 198, 130)',   // Cor 8
+                    'rgba(144, 219, 134)',   // Cor 9
+                    'rgba(43, 253, 95)'      // Cor 10 (Final, verde claro com opacidade)
                 ],
                 borderColor: [
-                    'rgba(43, 253, 95, 0.9)',
-                    'rgba(43, 253, 95, 0.8)',
-                    'rgba(43, 253, 95, 0.7)',
-                    'rgba(43, 253, 95, 0.6)',
-                    'rgba(43, 253, 95, 0.5)',
-                    'rgba(43, 253, 95, 0.4)'
+                    'rgba(0, 51, 102, 1)',        // Cor 1 (Início, azul escuro)
+                    'rgba(18, 72, 106)',     // Cor 3
+                    'rgba(54, 114, 114)',    // Cor 4
+                    'rgba(72, 135, 118)',    // Cor 7
+                    'rgba(126, 198, 130)',   // Cor 8
+                    'rgba(144, 219, 134)',   // Cor 9
+                    'rgba(43, 253, 95)'
                 ],
                 borderWidth: 1,
             }
@@ -103,14 +108,22 @@ const Dashboard = () => {
                 label: 'Gastos por Categoria',
                 data: topCategorias.map(item2 => item2.total),
                 backgroundColor: [
-                    'rgba(43, 253, 95, 0.9)',
-                    'rgba(43, 253, 95, 0.8)',
-                    'rgba(43, 253, 95, 0.7)',
-                    'rgba(43, 253, 95, 0.6)',
-                    'rgba(43, 253, 95, 0.5)',
-                    'rgba(43, 253, 95, 0.4)'
+                    'rgba(0, 51, 102)',
+                    'rgba(18, 72, 106)',
+                    'rgba(72, 135, 118)',
+                    'rgba(126, 198, 130)',
+                    'rgba(144, 219, 134)',
+                    'rgba(144, 219, 134)'
                 ],
-                borderColor: 'rgba(43, 253, 95, 0.9)',
+                borderColor: [
+                    'rgba(0, 51, 102, 1)',
+                    'rgba(18, 72, 106)',
+                    'rgba(54, 114, 114)',
+                    'rgba(72, 135, 118)',
+                    'rgba(126, 198, 130)',
+                    'rgba(144, 219, 134)',
+                    'rgba(43, 253, 95)'
+                ],
                 borderWidth: 1,
             }
         ],
@@ -135,14 +148,14 @@ const Dashboard = () => {
                 label: 'Gastos por Tipo de Pagamento',
                 data: tipoPag.map(item3 => item3.total),
                 backgroundColor: [
-                    'rgba(7, 19, 192, 0.3)',
-                    'rgba(61, 53, 192, 0.3)',
-                    'rgba(115, 87, 192, 0.3)',
-                    'rgba(185, 96, 192, 0.3)',
-                    'rgba(255, 105, 180, 0.3)'
+                    'rgba(0, 51, 102, 0.500)',
+                    'rgba(0, 51, 102, 0.995)',
+                    'rgba(0, 51, 102, 0.849)',
+                    'rgba(0, 51, 102, 0.705)',
+                    'rgba(0, 51, 102, 0.625)'
                 ],
                 borderColor: [
-                    'rgba(255,255,255)'
+                    '#fff'
                 ],
                 borderWidth: 3,
             }
@@ -165,8 +178,8 @@ const Dashboard = () => {
             {
                 label: 'Gastos ao Longo do Tempo',
                 data: gastostempo.map(item4 => item4.total),
-                backgroundColor: 'rgba(7, 19, 192, 0.2)',
-                borderColor: 'rgba(7, 19, 192, 0.2)',
+                backgroundColor: 'rgba(144, 219, 134)',
+                borderColor: '#003366',
                 borderWidth: 1,
                 tension: 0.4
             }
@@ -205,19 +218,23 @@ const Dashboard = () => {
                         />
                     </div>
                     <div className="col-sm-4">
-                        <button onClick={fetchData} className="btn btn-primary mt-4">Filtrar</button>
+                        <button onClick={fetchData} className="btn mt-4" style={{backgroundColor: '#003366', color: '#fff'}}>Filtrar</button>
                     </div>
                     <div className='row'>
                         <div className="col-sm-12" style={{ width: '360px' }}>
-                            <div className='border pl-4 pt-3 mt-4 pr-5' style={{ width: '100%' }}>
-                                <h6>Saldo total</h6>
-                                {saldototal.length > 0 && saidastotais.length > 0 ? (
-                                    <p>
-                                        {saldototal[0]['SUM(preco)'] - saidastotais[0]['sum(preco)']}
-                                    </p>
-                                ) : (
-                                    <p>Não há dados suficientes para calcular a subtração.</p>
-                                )}
+                            <div className='border  mt-4 p-3 d-flex align-items-center' style={{ width: '100%' }}>
+                                <FontAwesomeIcon icon={faCircleDollarToSlot} style={{ color: '#003366', height: 35 + 'px', marginRight: 20 + 'px', marginLeft: 20 + 'px' }} />
+                                <div>
+                                    <h6 style={{ color: '#003366', margin: 0 }}>Saldo total</h6>
+                                    {saldototal.length > 0 && saidastotais.length > 0 ? (
+                                        <p style={{ fontSize: 15 + 'pt', margin: 0 }}>
+                                            $
+                                            {saldototal[0]['SUM(preco)'] - saidastotais[0]['sum(preco)']}
+                                        </p>
+                                    ) : (
+                                        <p style={{ margin: 0 }}>Não há dados suficientes.</p>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -227,7 +244,10 @@ const Dashboard = () => {
                 <div className="row">
                     <div className="col-sm-4 mb-3" style={{ width: '360px' }}>
                         <div className='border p-4'>
-                            <h5>Top 5 maiores gastos</h5>
+                            <div className='d-flex'>
+                                <h5 style={{ marginRight: 8 + "px" }}>Top 5 maiores gastos</h5>
+                                <FontAwesomeIcon icon={faChartBar} color='#003366' />
+                            </div>
                             <div style={{ height: '280px', width: '100%' }}>
                                 <Bar data={topProdutosGastos} options={{ responsive: true, maintainAspectRatio: false, indexAxis: 'y' }} />
                             </div>
@@ -235,7 +255,10 @@ const Dashboard = () => {
                     </div>
                     <div className="col-md-4 mb-3" style={{ width: '360px' }}>
                         <div className='border p-4'>
-                            <h5>Total de gastos por data</h5>
+                            <div className='d-flex'>
+                                <h5 style={{ marginRight: 8 + "px" }}>Total de gastos por data</h5>
+                                <FontAwesomeIcon icon={faChartLine} color='#003366' />
+                            </div>
                             <div style={{ height: '280px', width: '100%' }}>
                                 <Line data={Gastosaolongodotempo} options={{ responsive: true, maintainAspectRatio: false }} />
                             </div>
@@ -243,7 +266,10 @@ const Dashboard = () => {
                     </div>
                     <div className="col-xl-4 mb-3" style={{ width: '360px' }}>
                         <div className='border p-4'>
-                            <h5>Gastos por Tipo de Pagamento</h5>
+                            <div className='d-flex'>
+                                <h5 style={{ marginRight: 8 + "px" }}>Gastos por Tipo de Pagamento</h5>
+                                <FontAwesomeIcon icon={faChartPie} color='#003366' />
+                            </div>
                             <div style={{ height: '280px', width: '100%' }}>
                                 <Pie data={topGastosPag} options={{ responsive: true, maintainAspectRatio: false }} />
                             </div>
@@ -255,7 +281,10 @@ const Dashboard = () => {
                 <div className="row">
                     <div className="col-xxl-12" style={{ width: '360px' }}>
                         <div className='border p-3'>
-                            <h5 style={{ width: '280px' }}>Gastos por Categoria</h5>
+                            <div className='d-flex'>
+                                <h5 style={{ marginRight: 8 + "px" }}>Gastos por Categoria</h5>
+                                <FontAwesomeIcon icon={faChartColumn} color='#003366' />
+                            </div>
                             <div style={{ height: '280px', width: '100%' }}>
                                 <Bar data={topGastosCategoria} options={{ responsive: true, maintainAspectRatio: false }} />
                             </div>
