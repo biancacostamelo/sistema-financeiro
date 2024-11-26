@@ -12,17 +12,17 @@ p{
 }
 
 h2 {
-  color: #565d7e !important;
+  color: #0c6424 !important;
   font-size: 25px !important;
 }
 
 h5{
-  color: #565d7e !important;
+  color: #0c6424 !important;
   font-size: 16px !important;
 }
 
 h6 {
-  color: #565d7e !important;
+  color: #0c6424 !important;
   font-size: 15px !important;
 }
 
@@ -59,7 +59,7 @@ h6 {
 }
 
 input.pesquisa:hover {
-  box-shadow: 0px 3px 6px rgba(64, 12, 95, 0.308);
+  box-shadow: 0px 3px 6px rgba(12, 95, 33, 0.308);
 }
 
 .icon {
@@ -101,9 +101,6 @@ select {
   align-items: start;
 }
 
-.darkmode{
-  background-color: #100f16;
-}
 
 .input {
   width: 100%;
@@ -126,8 +123,9 @@ select {
 }
 
 .botao {
-  background-color: #6F799F;
-  color: rgb(255, 255, 255);
+  /* background-color: #6F799F; */
+  background-color: #70ff95;
+  color: #0c6424;
   border: none;
   box-shadow: rgba(149, 157, 165, 0.2) 2px 2px 2px;
   font-size: 12pt;
@@ -138,8 +136,9 @@ select {
 }
 
 .botaoRelatorio{
-  background-color: #6f799f60;
-  color: #fff;
+  /* background-color: #6f799f60; */
+  background-color: #d5ffe0;
+  color: #0c6424;
   border: none;
   box-shadow: rgba(149, 157, 165, 0.2) 2px 2px 2px;
   font-size: 12pt;
@@ -192,8 +191,10 @@ select {
   width: 200px;
   height: 100%;
   margin-left: -200px;
-  background: linear-gradient(#5c6486, #717ca7, #7e89b9);
+  /* background: linear-gradient(#5c6486, #717ca7, #7e89b9); */
+  background-color:#70ff95;
   padding-left: 25px;
+
   border-radius: 0px 30px 30px 0px;
 }
 
@@ -262,7 +263,7 @@ select {
     left: 0px !important;
     margin-left: 0px !important;
     height: 70px !important;
-    background: linear-gradient(#5c6486, #717ca7, #7e89b9) !important;
+    background-color: #70ff95 !important;
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
@@ -317,7 +318,9 @@ select {
   }
 }
 .areaMenu.active {
-  background-color: #e4e6fa6e;
+  /* background-color: #e4e6fa6e; */
+  background-color: #d5ffe0;
+  color: #0c6424;
 }
 
 .areaMenu {
@@ -325,7 +328,7 @@ select {
   background-color: transparent;
   border: none;
   width: 100%;
-  color: #fff;
+  color: #0c6424;
   text-align: left;
   padding-left: 20px;
   font-size: 14px !important; 
@@ -380,7 +383,7 @@ tr .darkmode{
   overflow: hidden !important;
 }
 .dropdown-menu a{
-  color: white;
+  color: #0c6424;
   text-decoration: none;
 }
 .dropdown-item:hover{
