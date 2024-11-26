@@ -73,7 +73,7 @@ const Dashboard = () => {
                     'rgba(72, 135, 118)',    // Cor 7
                     'rgba(126, 198, 130)',   // Cor 8
                     'rgba(144, 219, 134)',   // Cor 9
-                    'rgba(43, 253, 95)'      // Cor 10 (Final, verde claro com opacidade)
+                    'rgb(158, 221, 174)'     // Cor 10 (Final, verde claro com opacidade)
                 ],
                 borderColor: [
                     'rgba(0, 51, 102, 1)',        // Cor 1 (Início, azul escuro)
@@ -113,16 +113,15 @@ const Dashboard = () => {
                     'rgba(72, 135, 118)',
                     'rgba(126, 198, 130)',
                     'rgba(144, 219, 134)',
-                    'rgba(144, 219, 134)'
+                    'rgba(160, 245, 149)'
                 ],
                 borderColor: [
-                    'rgba(0, 51, 102, 1)',
+                    'rgba(0, 51, 102)',
                     'rgba(18, 72, 106)',
-                    'rgba(54, 114, 114)',
                     'rgba(72, 135, 118)',
                     'rgba(126, 198, 130)',
                     'rgba(144, 219, 134)',
-                    'rgba(43, 253, 95)'
+                    'rgba(144, 219, 134)'
                 ],
                 borderWidth: 1,
             }
@@ -152,7 +151,7 @@ const Dashboard = () => {
                     'rgba(0, 51, 102, 0.995)',
                     'rgba(0, 51, 102, 0.849)',
                     'rgba(0, 51, 102, 0.705)',
-                    'rgba(0, 51, 102, 0.625)'
+                    'rgba(0, 51, 102, 0.534)'
                 ],
                 borderColor: [
                     '#fff'
@@ -218,7 +217,7 @@ const Dashboard = () => {
                         />
                     </div>
                     <div className="col-sm-4">
-                        <button onClick={fetchData} className="btn mt-4" style={{backgroundColor: '#003366', color: '#fff'}}>Filtrar</button>
+                        <button onClick={fetchData} className="btn mt-4" style={{ backgroundColor: '#003366', color: '#fff' }}>Filtrar</button>
                     </div>
                     <div className='row'>
                         <div className="col-sm-12" style={{ width: '360px' }}>

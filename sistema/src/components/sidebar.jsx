@@ -52,8 +52,8 @@ const Sidebar = () => {
                     </div>
                     <div className="areaMenu pb-2 pt-2 pl-1" >
                         <button className="areaMenu">
-                            <NavDropdown title="Relatório" id="navbarScrollingDropdown">
-                                <Link to='/Relatorio'>
+                            <NavDropdown title="Relatório" id="navbarScrollingDropdown" className='anavbar'>
+                                <Link to='/Relatorio' >
                                     <NavDropdown.Item> <Link to='/Relatorio'>o Relatorio</Link></NavDropdown.Item>
                                     <NavDropdown.Item> <Link to='/tableentradas'>o Entradas</Link></NavDropdown.Item>
                                     <NavDropdown.Item> <Link to='/tablesaidas'>o Saídas</Link></NavDropdown.Item>
