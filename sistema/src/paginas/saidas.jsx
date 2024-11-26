@@ -56,7 +56,7 @@ const Saidas = () => {
                         </div>
                         <div className="col-sm-6 r campoLabel">
                             <label htmlFor="preco" className="label">preço</label>
-                            <input type="number" value={preco} onChange={(e) => setPreco(e.target.value)} />
+                            <input required type="number" value={preco} onChange={(e) => setPreco(e.target.value)} />
                         </div>
                     </div>
                     <div className="row mb-4">
@@ -73,7 +73,7 @@ const Saidas = () => {
                         </div>
                         <div className="col-sm-6 campoLabel">
                             <label htmlFor="dataSaidas" className="label">data</label>
-                            <input type="date" className="input" value={dataSaidas} onChange={(e) => setDatasaidas(e.target.value)} />
+                            <input required type="date" className="input" value={dataSaidas} onChange={(e) => setDatasaidas(e.target.value)} />
                         </div>
                     </div>
                     <div className="row mb-4" >

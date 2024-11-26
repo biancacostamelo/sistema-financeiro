@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useEffect } from "react";
-import { faPlusCircle, faMinusCircle, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle, faMinusCircle, faChartSimple } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../css/style.css'
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -45,7 +45,7 @@ const Sidebar = () => {
                     <div className="areaMenu pb-2 pt-2 pl-1" >
                         <Link to='/Dashboard'>
                             <button className="areaMenu">
-                                <FontAwesomeIcon icon={faTachometerAlt} color="#003366" style={{ marginRight: 5 + 'px', fontSize: '16px' }} />
+                                <FontAwesomeIcon icon={faChartSimple} color="#003366" style={{ marginRight: 5 + 'px', fontSize: '16px' }} />
                                 Dashboard
                             </button>
                         </Link>
@@ -54,9 +54,8 @@ const Sidebar = () => {
                         <button className="areaMenu">
                             <NavDropdown title="Relatório" id="navbarScrollingDropdown" className='anavbar'>
                                 <Link to='/Relatorio' >
-                                    <NavDropdown.Item> <Link to='/Relatorio'>o Relatorio</Link></NavDropdown.Item>
-                                    <NavDropdown.Item> <Link to='/tableentradas'>o Entradas</Link></NavDropdown.Item>
-                                    <NavDropdown.Item> <Link to='/tablesaidas'>o Saídas</Link></NavDropdown.Item>
+                                    <NavDropdown.Item> <Link to='/tableentradas'>• Entradas</Link></NavDropdown.Item>
+                                    <NavDropdown.Item> <Link to='/tablesaidas'>• Saídas</Link></NavDropdown.Item>
                                 </Link>
                             </NavDropdown>
                         </button>
