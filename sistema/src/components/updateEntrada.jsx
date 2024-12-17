@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min'
 
@@ -41,16 +42,16 @@ const UpdateEntrada = () => {
     }
 
   return (
-    <div>
+    <div className="corpoUpdate">
         <form  onSubmit={Handlesubmit} >
-                <div className="div p-5">
+                <div className="areaUpdate p-5">
                     <div className="mb-4">
                         <h2>Entradas</h2>
                     </div>
                     <div className='row mb-4'>
                         <div className="col-md-12">
                             <label htmlFor="id">ID</label>
-                            <input type="number" id='id' name='id' value={id}/>
+                            <input type="number" id="id" name="id" value={id}/>
                         </div>
                     </div>
                     <div className="row mb-4">
@@ -89,7 +90,12 @@ const UpdateEntrada = () => {
                     </div>
                     <div className="row">
                         <div className="col-md-12">
-                            <button className="botao" type='submit'>Atualizar</button>
+                            <button className="botao" type="submit">Atualizar</button>
+                        </div>
+                        <div className="col-sm-12">
+                            <Link className='Link' to='/tableentradas'>
+                                <div className="btn btn-light w-100 mt-2" style={{ borderRadius: '10px' }}>Voltar</div>
+                            </Link>
                         </div>
                     </div>
                 </div>
