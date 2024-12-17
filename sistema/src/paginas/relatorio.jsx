@@ -21,10 +21,10 @@ const Relatorio = () => {
                 <Pesquisa />
                 <div className="div3">
                     <h2>Entradas</h2>
-                    <Link to='/tableentradas'>
+                    <Link to="/tableentradas">
                         <button className="botaoRelatorio mb-1">Entradas</button>
                     </Link>
-                    <Link to='/tablesaidas'>
+                    <Link to="/tablesaidas">
                         <button className="botaoRelatorio mb-1">Saidas</button>
                     </Link>
                 </div>
@@ -48,9 +48,9 @@ const Relatorio = () => {
                                     <td className="v-a">{entradas.categoria}</td>
                                     <td className="v-a">{entradas.preco}</td>
                                     <td className="v-a">{new Date(entradas.dataEntrada).toLocaleDateString('pt-BR', {
-                                        day: '2-digit',
-                                        month: '2-digit',
-                                        year: 'numeric'
+                                        day: "2-digit",
+                                        month: "2-digit",
+                                        year: "numeric"
                                     })}</td>
                                     <td className="v-a">
                                         <div
@@ -69,7 +69,6 @@ const Relatorio = () => {
                                     <td className="v-a"><button onClick={e => Handledelete(entradas.id)} className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
                                 </tr>
                             ))}
-
                         </tbody>
                     </table>
                 </div>

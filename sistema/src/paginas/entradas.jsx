@@ -53,17 +53,17 @@ const Entradas = () => {
                         </div>
                         <div className="col-md-6 r campoLabel">
                             <label htmlFor="preco" className="label">preço</label>
-                            <input required type="number" value={preco} onChange={(e) => setPreco(e.target.value)} />
+                            <input required type="number" id="preco" value={preco} onChange={(e) => setPreco(e.target.value)} />
                         </div>
                     </div>
                     <div className="row mb-4">
                         <div className="col-md-6 campoLabel">
                             <label htmlFor="data" className="label">data</label>
-                            <input required type="date" className="input" value={data} onChange={(e) => setData(e.target.value)} />
+                            <input required type="date" id="data" className="input" value={data} onChange={(e) => setData(e.target.value)} />
                         </div>
                         <div className="col-md-6 campoLabel">
-                            <label htmlFor="data" className="label">descrição</label>
-                            <input type="text" className="input" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
+                            <label htmlFor="descricao" className="label">descrição</label>
+                            <input type="text" className="input" id="descricao" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
                         </div>
                     </div>
                     <div className="row">
