@@ -12,7 +12,7 @@ p {
 }
 
 h2 {
-  color: rgb(0, 51, 102) !important;
+  color: #003366 !important;
   font-size: 25px !important;
 }
 
@@ -135,9 +135,13 @@ select {
   width: 100%;
 }
 
+.botao:hover{
+  background-color: #001f3f;
+}
+
 .botaoRelatorio {
   /* background-color: #6f799f60; */
-  background-color: #00336649;
+  background-color: #0033661c;
   color: #003366;
   border: none;
   box-shadow: rgba(0, 27, 82, 0.425) 1px 1px 1px;
@@ -147,6 +151,10 @@ select {
   border-radius: 10px;
   width: auto;
   margin-right: 25px;
+}
+
+.botaoRelatorio:hover{
+  background-color: #0033662f;
 }
 
 .iconMoon,
@@ -194,7 +202,6 @@ select {
   /* background: linear-gradient(#5c6486, #717ca7, #7e89b9); */
   background-color: #69eb8c;
   padding-left: 25px;
-
   border-radius: 0px 30px 30px 0px;
 }
 
@@ -219,6 +226,10 @@ select {
   .areaMenu {
     width: 92px !important;
     padding-left: 0px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .dropdown-menu.show {
@@ -249,16 +260,10 @@ select {
     margin-top: 70px !important;
   }
 
-  .dados {
-    margin-left: 5px !important;
-  }
-
-  .div3 {
-    margin-left: 5px;
-  }
-
-  .div2 {
-    margin-left: 5px;
+  .div3,
+  .div2,
+  .dados{
+    margin-left: 10px !important;
   }
 
   .group {
@@ -298,6 +303,16 @@ select {
   .pesquisa {
     border: 1px solid #ffffffad !important;
   }
+
+  .areaMenu.active {
+    background-color: #d5ffe0;
+    color: #0c6424;
+    border-radius: 16px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
 }
 
 @media (max-width: 980px) {
@@ -305,6 +320,10 @@ select {
     margin-left: 160px;
     width: auto;
     margin-right: 10px;
+  }
+  .areaUpdate{
+    width: auto !important;
+    margin: 10px;
   }
 }
 
@@ -342,7 +361,6 @@ select {
 }
 
 .areaMenu.active {
-  /* background-color: #e4e6fa6e; */
   background-color: #d5ffe0;
   color: #0c6424;
   border-radius: 16px 0px 0px 16px;
@@ -402,10 +420,6 @@ td {
   font-size: 14px !important;
 }
 
-tr .darkmode {
-  border-color: #242424 !important;
-}
-
 .dropdown-menu {
   background-color: transparent !important;
   border: none !important;
@@ -421,4 +435,41 @@ tr .darkmode {
 .dropdown-item:hover {
   background-color: transparent !important;
   border-radius: 15px;
+}
+
+.corpoUpdate{
+  position: absolute;
+  background-color: rgba(130, 130, 130, 0.26);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+}
+
+.areaUpdate{
+  box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
+  border-radius: 15px;
+  width: 530px;
+  background-color: white;
+}
+
+@media (max-width: 668px) {
+  .corpoUpdate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    backdrop-filter: none;
+  }
+}
+
+.Link {
+  text-decoration: none !important;
+  color: white;
 }
