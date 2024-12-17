@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Update = () => {
-    const {id} = useParams()
+    const { id } = useParams()
     const history = useHistory()
 
     const [categoria, setCategoria] = useState('')
@@ -33,7 +34,7 @@ const Update = () => {
         axios.put(`http://localhost:3005/update/${id}`, saidaAtualizada)
             .then(() => {
                 alert('Dados atualizados com sucesso!')
-                history.push('/tablesaidas')  // Redireciona após a atualização
+                history.push('/tablesaidas')
             })
             .catch(() => {
                 alert('Erro ao atualizar')
@@ -41,9 +42,9 @@ const Update = () => {
     }
 
     return (
-        <div>
+        <div className="corpoUpdate">
             <form onSubmit={Handlesubmit}>
-                <div className="div p-5">
+                <div className="areaUpdate p-5">
                     <div className="mb-4">
                         <h2>Modificar Saída</h2>
                     </div>
@@ -103,6 +104,11 @@ const Update = () => {
                     <div className="row">
                         <div className="col-sm-12">
                             <button className="botao" type="submit">Atualizar</button>
+                        </div>
+                        <div className="col-sm-12">
+                            <Link className='Link' to='/tablesaidas'>
+                                <div className="btn btn-light w-100 mt-2" style={{ borderRadius: '10px' }}>Voltar</div>
+                            </Link>
                         </div>
                     </div>
                 </div>
