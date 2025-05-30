@@ -35,9 +35,9 @@ app.post('/entradas', (req, res) => {
 })
 
 app.post('/saidas', (req, res) => {
-    const { categoria, preco, tipoPagamento, dataSaidas, descricao } = req.body
+    const { categoria, preco, tipoPagamento, data, descricao } = req.body
     const query = 'insert into saidas (categoria, preco, tipoPagamento, dataSaidas, descricao) values (?,?,?,?,?)'
-    conexao.query(query, [categoria, preco, tipoPagamento, dataSaidas, descricao], (erro) => {
+    conexao.query(query, [categoria, preco, tipoPagamento, data, descricao], (erro) => {
         if (erro) {
             res.status(500).send('erro ao inserir saidas')
         } else {
@@ -47,7 +47,7 @@ app.post('/saidas', (req, res) => {
 })
 
 app.get('/todassaidas', (req, res) => {
-    const query = 'select * from saidas'
+    const query = 'select * from saidas ORDER BY dataSaidas ASC'
     conexao.query(query, (erro, resultado) => {
         if (erro) {
             res.status(500).send('erro ao buscar dados')
@@ -58,7 +58,7 @@ app.get('/todassaidas', (req, res) => {
 })
 
 app.get('/todasentradas', (req, res) => {
-    const query = 'select * from entradas'
+    const query = 'select * from entradas ORDER BY dataEntrada ASC'
     conexao.query(query, (erro, resultado) => {
         if (erro) {
             res.status(500).send('erro ao buscar dados')

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Pesquisa from "../components/pesquisa";
 import axios from "axios";
 import Tablesaidas from "../components/tablesaidas";
 
@@ -8,19 +7,19 @@ const Saidas = () => {
     const [categoria, setCategoria] = useState('')
     const [preco, setPreco] = useState('')
     const [tipoPagamento, setTipopagamento] = useState('')
-    const [dataSaidas, setDatasaidas] = useState('')
+    const [data, setData] = useState('')
     const [descricao, setDescricao] = useState('')
 
     const Handlesubmit = (evento) => {
         evento.preventDefault()
-        const novaSaida = { categoria, preco, tipoPagamento, dataSaidas, descricao }
+        const novaSaida = { categoria, preco, tipoPagamento, data, descricao }
         axios.post('http://localhost:3005/saidas', novaSaida)
             .then(() => {
                 alert('saída adicionada com sucesso!')
                 setCategoria('')
                 setPreco('')
                 setTipopagamento('')
-                setDatasaidas('')
+                setData('')
                 setDescricao('')
             })
             .catch((erro) => {
@@ -30,63 +29,65 @@ const Saidas = () => {
 
     return (
         <>
-            <div className="campo2">
-                <Pesquisa />
+            <div className="campo2 mt-5 mx-5">
+            <h2 className="mt-4 m-225">Saidas</h2>
                 <form onSubmit={Handlesubmit}>
-                    <div className="formcadastro p-5">
-                        <div className="mb-4">
-                            <h2>Saidas</h2>
-                        </div>
-                        <div className="row mb-4">
-                            <div className="col-sm-6 r campoLabel">
+                    <div className="formcadastro">
+                        <h5>Adicionar nova despesa</h5>
+                        <div className="row mb-3 mt-4">
+                            <div className="col-md-6 r campoLabel">
                                 <label htmlFor="categoria" className="label">categoria</label>
                                 <select name="categoria" id="categoria" required value={categoria} onChange={(e) => setCategoria(e.target.value)}>
                                     <option value="">Selecione</option>
-                                    <option value="alimentacao">Alimentação</option>
-                                    <option value="moradia">Moradia</option>
-                                    <option value="transporte">Transporte</option>
-                                    <option value="educacao">Educação</option>
-                                    <option value="saude">Saúde</option>
-                                    <option value="lazer_entretenimento">Lazer e entretenimento</option>
-                                    <option value="vestuario">Vestuário</option>
-                                    <option value="tecnologia_comunicacao">Tecnologia e comunicação</option>
-                                    <option value="seguros_protecao">Seguros e proteção</option>
-                                    <option value="impostos_taxas">Impostos e taxas</option>
-                                    <option value="despesas_animais">Despesas com animais de estimação</option>
-                                    <option value="doacoes_caridade">Doações e caridade</option>
+                                    <option value="salario">Salário</option>
+                                    <option value="freelance">Freelance ou prestação de serviços</option>
+                                    <option value="investimentos">Rendimentos de investimentos</option>
+                                    <option value="aluguéis">Aluguéis</option>
+                                    <option value="pensao_aposentadoria">Pensão ou aposentadoria</option>
+                                    <option value="comissoes_bonificacoes">Comissões ou bonificações</option>
+                                    <option value="lucros_negocios">Lucros de negócios próprios</option>
+                                    <option value="premios_sorteios">Prêmios ou sorteios</option>
+                                    <option value="venda_bens">Venda de bens</option>
+                                    <option value="ajuda_familiar">Ajuda financeira de familiares ou amigos</option>
+                                    <option value="dividendos">Dividendos de ações</option>
+                                    <option value="reembolsos">Reembolsos</option>
                                 </select>
                             </div>
-                            <div className="col-sm-6 r campoLabel">
-                                <label htmlFor="preco" className="label">preço</label>
-                                <input required type="number" value={preco} id="preco" onChange={(e) => setPreco(e.target.value)} />
+                            <div className="col-md-6 campoLabel">
+                                <label htmlFor="data" className="label">data</label>
+                                <input required type="date" id="data" className="input" value={data} onChange={(e) => setData(e.target.value)} />
                             </div>
                         </div>
-                        <div className="row mb-4">
-                            <div className="col-sm-6 campoLabel">
-                                <label htmlFor="tipoPagamento" className="label">tipo pagamento</label>
-                                <select name="tipoPagamento" id="tipoPagamento" required value={tipoPagamento} onChange={(e) => setTipopagamento(e.target.value)}>
-                                    <option value="">Selecione</option>
-                                    <option value="Pix">Pix</option>
-                                    <option value="cartaocredito">Cartão de Crédito</option>
-                                    <option value="cartaodebito">Cartão de Débito</option>
-                                    <option value="dinheiro">Dinheiro</option>
-                                    <option value="outros">Outros</option>
+                        <div className="row mb-3 gap-3">
+                            <div className="col-md-12 r campoLabel">
+                                <label htmlFor="tipo_pagamento" className="label">Tipo Pagamento</label>
+                                <select name="tipo_pagamento" id="tipo_pagamento">
+                                    <option value="selecione">selecione</option>
+                                    <option value="pix">pix</option>
+                                    <option value="debito">debito</option>
                                 </select>
                             </div>
-                            <div className="col-sm-6 campoLabel">
-                                <label htmlFor="dataSaidas" className="label">data</label>
-                                <input required type="date" id="dataSaidas" className="input" value={dataSaidas} onChange={(e) => setDatasaidas(e.target.value)} />
+                            <div className="col-md-12 campoLabel">
+                                <label htmlFor="valor" className="label">Valor</label>
+                                <input type="number" className="input" id="valor" name="valor" value={preco} onChange={(e) => setPreco(e.target.value)} />
                             </div>
                         </div>
-                        <div className="row mb-4" >
-                            <div className="col-sm-12 campoLabel">
-                                <label htmlFor="descricao" className="label" >descrição</label>
+                        <div className="row mb-3 gap-3">
+                            <div className="col-md-12 r campoLabel">
+                                <label htmlFor="conta" className="label">Conta</label>
+                                <select name="conta" id="conta">
+                                    <option value="nubank">nubank</option>
+                                    <option value="itau">itau</option>
+                                </select>
+                            </div>
+                            <div className="col-md-12 campoLabel">
+                                <label htmlFor="descricao" className="label">descrição</label>
                                 <textarea id="descricao" name="descricao" style={{ width: '100%', height: '100px' }} value={descricao} onChange={(e) => setDescricao(e.target.value)}></textarea>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-sm-12">
-                                <button className="botao" type="submit">Enviar</button>
+                                <button className="botao fw-medium" type="submit">Cadastrar</button>
                             </div>
                         </div>
                     </div>

@@ -118,7 +118,7 @@ select {
   box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
   border-radius: 15px;
   margin-left: 225px;
-  width: fit-content;
+  width: 82%;
   margin-top: 37.5px;
 }
 
@@ -201,20 +201,27 @@ select {
   margin-left: -200px;
   /* background: linear-gradient(#5c6486, #717ca7, #7e89b9); */
   background-color: #69eb8c;
-  padding-left: 25px;
+  padding: 0px 15px 0px 15px;
   border-radius: 0px 30px 30px 0px;
 }
 
 .formcadastro {
-  margin-top: 50px;
+  margin-top: 30px;
   box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
   border-radius: 15px;
+  margin-left: 225px;
+  width: 90%;
+  padding: 3rem;
+}
+
+.m-225{
   margin-left: 225px;
 }
 
 @media (max-width: 668px) {
   .formcadastro {
     box-shadow: rgba(0, 0, 0, 0)0px 0px 0px !important;
+    padding: 0 !important;
   }
 }
 
@@ -224,8 +231,9 @@ select {
   }
 
   .areaMenu {
-    width: 92px !important;
-    padding-left: 0px !important;
+    width: auto !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
@@ -246,7 +254,7 @@ select {
   .formcadastro {
     width: auto !important;
     margin-left: 0px;
-    margin-top: 120px;
+    padding: 0px !important;
   }
 
   .campo2 {
@@ -254,6 +262,7 @@ select {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 30px;
   }
 
   .campo {
@@ -262,8 +271,12 @@ select {
 
   .div3,
   .div2,
+  .m-225{
+    margin-left: 0px !important;
+  }
   .dados{
-    margin-left: 10px !important;
+    margin-right: 20px !important;
+    margin-left: 20px !important;
   }
 
   .group {
@@ -304,15 +317,6 @@ select {
     border: 1px solid #ffffffad !important;
   }
 
-  .areaMenu.active {
-    background-color: #d5ffe0;
-    color: #0c6424;
-    border-radius: 16px !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
 }
 
 @media (max-width: 980px) {
@@ -325,6 +329,9 @@ select {
     width: auto !important;
     margin: 10px;
   }
+  .overflow{
+    overflow: scroll;
+  }
 }
 
 @media (max-width: 898px) {
@@ -334,10 +341,6 @@ select {
 
   .campo {
     margin-top: 120px !important;
-  }
-
-  .formcadastro {
-    margin-top: 160px;
   }
 
   .iconUser {
@@ -360,10 +363,14 @@ select {
   }
 }
 
+.areaMenu.active > svg{
+  color: #69eb8c;
+}
 .areaMenu.active {
-  background-color: #d5ffe0;
-  color: #0c6424;
-  border-radius: 16px 0px 0px 16px;
+  background-color: #1E2B58;
+  color: #f7f7f7;
+  font-weight: 500;
+  border-radius: 5px;
 }
 
 .areaMenu {
@@ -375,6 +382,7 @@ select {
   text-align: left;
   padding-left: 20px;
   font-size: 14px !important;
+  font-weight: 500;
 }
 
 .campoLabel {

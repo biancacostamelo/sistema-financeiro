@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom/cjs/react-router-dom"
 import axios from "axios"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons"
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 
 const Tableentradas = () => {
 
@@ -17,9 +20,9 @@ const Tableentradas = () => {
 
     return (
         <>
-            <div className="campo"  style={{ overflow: 'scroll' }}>
+            <div className="campo overflow mx-5">
                 <div className="div3">
-                    <h2>Entradas</h2>
+                    <h2>Tabela de Entradas</h2>
                 </div>
                 <div className="div2">
                     <table className="table">
@@ -38,8 +41,8 @@ const Tableentradas = () => {
                             {entradas.map((entradas) => (
                                 <tr key={entradas.id}>
                                     <th scope="row" className="v-a">{entradas.id}</th>
-                                    <td className="v-a">{entradas.categoria}</td>
-                                    <td className="v-a">{entradas.preco}</td>
+                                    <td className="v-a fw-bolder">{entradas.categoria}</td>
+                                    <td className="v-a text-success fw-medium">R$ {entradas.preco}</td>
                                     <td className="v-a">{new Date(entradas.dataEntrada).toLocaleDateString('pt-BR', {
                                         day: '2-digit',
                                         month: '2-digit',
@@ -58,8 +61,16 @@ const Tableentradas = () => {
                                             {entradas.descricao}
                                         </div>
                                     </td>
-                                    <td className="v-a"><Link to={`/updateentrada/${entradas.id}`} className="btn btn-primary mb-2 mt-2 align-middle">modificar</Link></td>
-                                    <td className="v-a"><button onClick={e => Handledelete(entradas.id)} className="btn btn-danger mb-2 mt-2 align-middle">deletar</button></td>
+                                    <td className="v-a">
+                                        <Link to={`/updateentrada/${entradas.id}`} className="mb-2 mt-2 align-middle">
+                                         <FontAwesomeIcon icon={faPenToSquare} style={{ color: '#204A77', height: '18px'}} />
+                                        </Link>
+                                        </td>
+                                    <td className="v-a">
+                                        <button onClick={e => Handledelete(entradas.id)} className="btn mb-2 mt-2 align-middle">
+                                            <FontAwesomeIcon icon={faTrashCan} style={{ color: '#E9332E', height: '18px'}} />
+                                        </button>
+                                        </td>
                                 </tr>
                             ))}
 
