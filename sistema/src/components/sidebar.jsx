@@ -29,8 +29,8 @@ const Sidebar = () => {
                     <div data-path='/Entradas' className="areaMenu pb-2 pt-2 pl-1" >
                         <Link to='/Entradas' className="Link">
                             <button data-path='/Entradas' className="areaMenu">
-                                <FontAwesomeIcon icon={faPlusCircle} style={{ marginRight: '5px', fontSize: '16px' }} />
-                                Entradas
+                                <FontAwesomeIcon icon={faPlusCircle} color="#003366" style={{ marginRight: '5px', fontSize: '16px' }} />
+                                <span id="text-navbar">Entradas</span>
                             </button>
                         </Link>
                     </div>
@@ -38,7 +38,7 @@ const Sidebar = () => {
                         <Link to='/Saidas' className="Link">
                             <button data-path='/Saidas' className="areaMenu">
                                 <FontAwesomeIcon icon={faMinusCircle} color="#003366" style={{ marginRight: '5px', fontSize: '16px' }} />
-                                Saidas
+                                <span id="text-navbar">Saidas</span>
                             </button>
                         </Link>
                     </div>
@@ -46,7 +46,7 @@ const Sidebar = () => {
                         <Link to='/Dashboard' className="Link">
                             <button data-path='/Dashboard' className="areaMenu">
                                 <FontAwesomeIcon icon={faChartSimple} color="#003366" style={{ marginRight: '5px', fontSize: '16px' }} />
-                                Dashboard
+                                <span id="text-navbar">Dashboard</span>
                             </button>
                         </Link>
                     </div>
