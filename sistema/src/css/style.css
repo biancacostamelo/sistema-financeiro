@@ -552,3 +552,55 @@ td {
   padding-right: 15px;
   color: #414141;
 }
+
+.bg-login{
+  background: linear-gradient(180.16deg, #1E2B58 3.8%, #192348 94.61%);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-login{
+width: 437px;
+height: 342px;
+background: #FFFFFF;
+border-radius: 15px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 45px;
+}
+
+.text-login{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: #1E2B58;
+
+}
+
+.text-esqueciminhasenha{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+line-height: 10px;
+text-decoration-line: underline;
+color: #656565;
+}
+
+.text-cadastro{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 10px;
+text-decoration-line: underline;
+color: #2896C5;
+}

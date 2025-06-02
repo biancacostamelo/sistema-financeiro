@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../css/style.css'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { useLocation } from 'react-router-dom'
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 const Sidebar = () => {
     const location = useLocation()
@@ -22,9 +23,14 @@ const Sidebar = () => {
         })
     }, [location.pathname])
 
+    const history = useHistory()
+    const Sair =()=>{
+        history.push('/')
+    }
+
     return (
         <>
-            <div id="sidebar">
+            <div id="sidebar" className="d-flex flex-column justify-content-between">
                 <div className="menu">
                     <div data-path='/Entradas' className="areaMenu pb-2 pt-2 pl-1" >
                         <Link to='/Entradas' className="Link">
@@ -61,9 +67,12 @@ const Sidebar = () => {
                         </button>
                     </div>
                 </div>
+                <button className="botao mb-3" onClick={Sair}>sair</button>
             </div>
         </>
     )
+
+    
 }
 
 export default Sidebar
