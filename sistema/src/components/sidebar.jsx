@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom/cjs/react-router-dom"
 import { useEffect } from "react"
-import { faPlusCircle, faMinusCircle, faChartSimple } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle, faMinusCircle, faChartSimple, faListCheck, faCreditCard, faMoneyBill } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../css/style.css'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -56,12 +56,37 @@ const Sidebar = () => {
                             </button>
                         </Link>
                     </div>
+                    <div data-path='/Categorias' className="areaMenu pb-2 pt-2 pl-1" >
+                        <Link to='/Categorias' className="Link">
+                            <button data-path='/Categorias' className="areaMenu">
+                                <FontAwesomeIcon icon={faListCheck} color="#003366" style={{ marginRight: '5px', fontSize: '16px' }} />
+                                <span id="text-navbar">Categorias</span>
+                            </button>
+                        </Link>
+                    </div>
+                    <div data-path='/Contas' className="areaMenu pb-2 pt-2 pl-1" >
+                        <Link to='/Contas' className="Link">
+                            <button data-path='/Contas' className="areaMenu">
+                                <FontAwesomeIcon icon={faCreditCard} color="#003366" style={{ marginRight: '5px', fontSize: '16px' }} />
+                                <span id="text-navbar">Contas</span>
+                            </button>
+                        </Link>
+                    </div>
+                    <div data-path='/TPPagamento' className="areaMenu pb-2 pt-2 pl-1" >
+                        <Link to='/TPPagamento' className="Link">
+                            <button data-path='/TPPagamento' className="areaMenu">
+                                <FontAwesomeIcon icon={faMoneyBill} color="#003366" style={{ marginRight: '5px', fontSize: '16px' }} />
+                                <span id="text-navbar">Tipo de Pagamento</span>
+                            </button>
+                        </Link>
+                    </div>
                     <div data-path='/Relatorio' className="areaMenu pb-2 pt-2 pl-1" >
                         <button data-path='/Relatorio' className="areaMenu">
                             <NavDropdown title="Relatório" id="navbarScrollingDropdown" className="anavbar">
                                 <Link to='/Relatorio' className="Link">
-                                    <NavDropdown.Item> <Link data-path='/tableentradas' to='/tableentradas'>• Entradas</Link></NavDropdown.Item>
-                                    <NavDropdown.Item> <Link data-path='/tablesaidas' to='/tablesaidas'>• Saídas</Link></NavDropdown.Item>
+                                    <NavDropdown.Item><Link data-path='/tableentradas' to='/tableentradas'>• Entradas</Link>
+                                        </NavDropdown.Item>
+                                    <NavDropdown.Item><Link data-path='/tablesaidas' to='/tablesaidas'>• Saídas</Link></NavDropdown.Item>
                                 </Link>
                             </NavDropdown>
                         </button>
