@@ -20,9 +20,9 @@ const Tableentradas = () => {
 
     const [startData, setStartData] = useState('')
     const [endData, setEndData] = useState('')
-    const params = {startData, endData}
+    const params = { startData, endData }
 
-    const Filtrar =() =>{
+    const Filtrar = () => {
         if (startData === '' || endData === '') {
             alert('Preencha os campos de data')
             return
@@ -37,22 +37,22 @@ const Tableentradas = () => {
     }
     return (
         <>
-            <div className="campo overflow mx-5">
+            <div className="campo overflow mx-52">
                 <div className="div3">
                     <h2>Tabela de Entradas</h2>
                 </div>
-                <div className="div3 gap-5 filtroData align-items-center">
+                <div className="div3 filtroData ">
                     <span>Filtrar</span>
-                   <div className="position-relative">
+                    <div className="position-relative">
                         <label htmlFor="startData" className="label">Data começo</label>
                         <input type="date" className="input2" name="startData" value={startData} onChange={(e) => setStartData(e.target.value)} />
-                   </div>
-                   <p>até</p>
-                   <div className="position-relative">
+                    </div>
+                    <p>até</p>
+                    <div className="position-relative">
                         <label htmlFor="endData" className="label">Data final</label>
                         <input type="date" className="input2" name="endData" value={endData} onChange={(e) => setEndData(e.target.value)} />
-                   </div>
-                   <button className="botao2" onClick={Filtrar}>filtrar</button>
+                    </div>
+                    <button className="botao2" onClick={Filtrar}>filtrar</button>
                 </div>
                 <div className="div2">
                     <table className="table">
@@ -93,14 +93,14 @@ const Tableentradas = () => {
                                     </td>
                                     <td className="v-a">
                                         <Link to={`/updateentrada/${entradas.id}`} className="mb-2 mt-2 align-middle">
-                                         <FontAwesomeIcon icon={faPenToSquare} style={{ color: '#204A77', height: '18px'}} />
+                                            <FontAwesomeIcon icon={faPenToSquare} style={{ color: '#204A77', height: '18px' }} />
                                         </Link>
-                                        </td>
+                                    </td>
                                     <td className="v-a">
                                         <button onClick={e => Handledelete(entradas.id)} className="btn mb-2 mt-2 align-middle">
-                                            <FontAwesomeIcon icon={faTrashCan} style={{ color: '#E9332E', height: '18px'}} />
+                                            <FontAwesomeIcon icon={faTrashCan} style={{ color: '#E9332E', height: '18px' }} />
                                         </button>
-                                        </td>
+                                    </td>
                                 </tr>
                             ))}
 
@@ -110,14 +110,14 @@ const Tableentradas = () => {
             </div>
         </>
     )
-    function Handledelete (id) {
+    function Handledelete(id) {
         const confirm = window.confirm('Deseja apagar o dado?')
-        if (confirm){
+        if (confirm) {
             axios.delete('http://localhost:3005/todasentradas/' + id)
-            .then(res =>{
-                alert('dado apagado com sucesso!')
-                window.location.reload()
-            })
+                .then(res => {
+                    alert('dado apagado com sucesso!')
+                    window.location.reload()
+                })
         }
     }
 }

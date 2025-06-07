@@ -37,23 +37,23 @@ const Tablesaidas = () => {
 
   return (
     <>
-      <div className="campo overflow mx-5">
+      <div className="campo overflow mx-52">
         <div className="div3">
           <h2>Tabela de Saídas</h2>
         </div>
-         <div className="div3 gap-5 filtroData align-items-center">
-                    <span>Filtrar</span>
-                   <div className="position-relative">
-                        <label htmlFor="startData" className="label">Data começo</label>
-                        <input type="date" className="input2" name="startData" value={startData} onChange={(e) => setStartData(e.target.value)} />
-                   </div>
-                   <p>até</p>
-                   <div className="position-relative">
-                        <label htmlFor="endData" className="label">Data final</label>
-                        <input type="date" className="input2" name="endData" value={endData} onChange={(e) => setEndData(e.target.value)} />
-                   </div>
-                   <button className="botao2" onClick={Filtrar}>filtrar</button>
-                </div>
+        <div className="div3 filtroData">
+          <span>Filtrar</span>
+          <div className="position-relative">
+            <label htmlFor="startData" className="label">Data começo</label>
+            <input type="date" className="input2" name="startData" value={startData} onChange={(e) => setStartData(e.target.value)} />
+          </div>
+          <p>até</p>
+          <div className="position-relative">
+            <label htmlFor="endData" className="label">Data final</label>
+            <input type="date" className="input2" name="endData" value={endData} onChange={(e) => setEndData(e.target.value)} />
+          </div>
+          <button className="botao2" onClick={Filtrar}>filtrar</button>
+        </div>
         <div className="div2">
           <table className="table">
             <thead>

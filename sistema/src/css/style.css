@@ -80,6 +80,19 @@ input.pesquisa:hover {
   margin-top: 100px;
 }
 
+.nav-superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #69eb8c;
+    padding: 15px;
+}
+
+.navbar-dropdown {
+    float: right;
+}
+
 input,
 textarea,
 select {
@@ -123,7 +136,7 @@ select {
 .div2 {
   box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
   border-radius: 15px;
-  margin-left: 225px;
+  margin-left: 275px;
   width: 82%;
   margin-top: 37.5px;
 }
@@ -200,7 +213,7 @@ select {
 }
 
 .div3 {
-  margin-left: 225px;
+  margin-left: 275px;
   margin-top: 50px;
 }
 
@@ -218,7 +231,7 @@ select {
   position: fixed;
   left: 200px;
   top: 0px;
-  width: 200px;
+  width: 250px;
   height: 100%;
   margin-left: -200px;
   /* background: linear-gradient(#5c6486, #717ca7, #7e89b9); */
@@ -231,13 +244,27 @@ select {
   margin-top: 30px;
   box-shadow: rgba(0, 0, 0, 0.10)0px 3px 6px;
   border-radius: 15px;
-  margin-left: 225px;
+  margin-left: 275px;
   width: 90%;
   padding: 3rem;
 }
 
 .m-225{
-  margin-left: 225px;
+  margin-left: 275px;
+}
+
+.mx-52{
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+}
+
+.d-md-block2{
+    display: flex;
+    flex-direction: column;
+}
+
+.d-md-none2{
+    display: none;
 }
 
 @media (max-width: 668px) {
@@ -247,7 +274,7 @@ select {
   }
 }
 
-@media (max-width: 1473px) {
+@media (max-width: 1219px) {
   .anavbar{
     float: right;
   }
@@ -261,13 +288,12 @@ select {
     align-items: center !important;
     justify-content: center !important;
   }
-
+  
   .dropdown-menu.show {
     display: flex !important;
     flex-direction: column;
-    align-items: end;
   }
-
+  
   .dropdown-menu a {
     color: #565d7e !important;
     text-decoration: none;
@@ -325,7 +351,6 @@ select {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    justify-content: end !important;
   }
 
   .menu {
@@ -339,7 +364,35 @@ select {
   .pesquisa {
     border: 1px solid #ffffffad !important;
   }
+  #sidebar > button{
+    width: 80px;
+  }
+   .nav-superior {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        background-color: #69eb8c;
+        padding: 10px;
+    }
 
+    .navbar-dropdown {
+        margin-left: auto;
+    }
+    .d-md-block2{
+    flex-direction: row;
+}
+}
+
+@media (max-width: 876px) {
+  .d-md-block2{
+    display: none !important;
+  }
+  .d-md-none2{
+    display: block;
+  }
+  .btnnav{
+    display: none !important;
+  }
 }
 
 @media (max-width: 980px) {
@@ -354,6 +407,24 @@ select {
   }
   .overflow{
     overflow: scroll;
+  }
+  .filtroData{
+    align-items: flex-start !important;
+    gap: 1rem !important; 
+    width: 100% !important;
+    margin-bottom: 50px;
+  }
+  .div2{
+    width: 100% !important;
+  }
+  .filtroData > button{
+    width: 220px;
+  }
+}
+
+@media (max-width: 706px){
+  .filtroData{
+    flex-direction: column;
   }
 }
 
@@ -383,6 +454,7 @@ select {
   }
 }
 
+
 @media (max-width: 500px) {
   #text-navbar{
     display: none !important;
@@ -392,6 +464,10 @@ select {
   }
   .areaMenu svg {
     margin-right: 0px !important;
+  }
+  .mx-52{
+    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
   }
 }
 
@@ -453,7 +529,7 @@ select {
 .dados {
   display: flex;
   flex-direction: row;
-  margin-left: 240px;
+  margin-left: 325px;
 }
 
 .mr-auto {
@@ -468,10 +544,11 @@ td {
 }
 
 .dropdown-menu {
-  background-color: transparent !important;
+  background-color: #69eb8c !important;
   border: none !important;
   margin-top: 7px !important;
   overflow: hidden !important;
+  width: clamp(100px, 100vw, 864px) !important;
 }
 
 .dropdown-menu a {
@@ -529,6 +606,8 @@ td {
   width: 850px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
 .filtroData > p{
