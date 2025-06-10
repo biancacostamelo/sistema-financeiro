@@ -5,14 +5,14 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function Contas() {
   return (
-    <div className="campo mx-5">
-      <div className="div3 w-80">
-        <div className="d-flex justify-content-between mb-4">
-          <h2>Contas</h2>
-          <button className="btn btn-primary">Adicionar Conta +</button>
+    <div className="campo mx-4 overflow">
+      <div className="div3 w-80 ">
+        <div className="row mb-4 w-60">
+          <div className="col-sm-6"><h2>Contas</h2></div>
+          <div className="col-sm-6"><button className="btn btn-primary float-end2">Adicionar Conta +</button></div>
         </div>
         <h5>Histórico de Contas</h5>
-        <table className="table w-50 shadow1 mt-4">
+        <table className="table w-60 shadow1 mt-4">
           <thead>
             <tr>
               <th scope="col">ID</th>

@@ -27,7 +27,7 @@ const Entradas = () => {
     return (
         <>
             <div className="campo2 mt-5 mx-5">
-            <h2 className="mt-4 m-225">Entradas</h2>
+                <h2 className="mt-4 m-225">Entradas</h2>
                 <form onSubmit={Enviardados}>
                     <div className="formcadastro">
                         <h5>Adicionar nova receita</h5>
@@ -90,7 +90,7 @@ const Entradas = () => {
                     </div>
                 </form>
             </div>
-          <Tableentradas/>
+            <Tableentradas />
         </>
     )
 }

@@ -5,14 +5,14 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function Categorias() {
   return (
-    <div className="campo mx-5">
+    <div className="campo mx-4">
       <div className="div3 w-80">
-        <div className="d-flex justify-content-between mb-4">
-          <h2>Categorias</h2>
-          <button className="btn btn-primary">Adicionar Categoria +</button>
+        <div className="row mb-4 w-60">
+          <div className="col-sm-6"><h2>Categorias</h2></div>
+          <div className="col-sm-6"><button className="btn btn-primary float-end2">Adicionar Categoria +</button></div>
         </div>
         <h5>Histórico de Categorias</h5>
-        <table className="table w-50 shadow1 mt-4">
+        <table className="table w-60 shadow1 mt-4">
           <thead>
             <tr>
               <th scope="col">ID</th>

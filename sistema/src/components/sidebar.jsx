@@ -12,7 +12,7 @@ const Sidebar = () => {
     const location = useLocation()
     useEffect(() => {
         const menuItems = document.querySelectorAll('.areaMenu')
-        
+
         menuItems.forEach(menuItem => {
             const path = menuItem.getAttribute('data-path')
             if (location.pathname.includes(path)) {
@@ -24,7 +24,7 @@ const Sidebar = () => {
     }, [location.pathname])
 
     const history = useHistory()
-    const Sair =()=>{
+    const Sair = () => {
         history.push('/')
     }
 
@@ -86,7 +86,7 @@ const Sidebar = () => {
                                 <NavDropdown title="Relatório" id="navbarScrollingDropdown" className="anavbar">
                                     <Link to='/Relatorio' className="Link">
                                         <NavDropdown.Item><Link data-path='/tableentradas' to='/tableentradas'>• Entradas</Link>
-                                            </NavDropdown.Item>
+                                        </NavDropdown.Item>
                                         <NavDropdown.Item><Link data-path='/tablesaidas' to='/tablesaidas'>• Saídas</Link></NavDropdown.Item>
                                     </Link>
                                 </NavDropdown>
@@ -94,48 +94,51 @@ const Sidebar = () => {
                         </div>
                     </div>
 
-                     <div className="d-md-none2">
+                    <div className="d-md-none2">
                         {/* Nav superior para telas pequenas */}
                         <div className="nav-superior">
-                            <FontAwesomeIcon icon={faBars} />
+
+                            <FontAwesomeIcon icon={faBars} className="icon-menu"/>
+
                             <NavDropdown id="navbarScrollingDropdown" className="navbar-dropdown">
                                 <Link to='/Entradas' className="Link">
-                                    <NavDropdown.Item><FontAwesomeIcon icon={faPlusCircle} color="#003366" /> Entradas</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Entradas"><FontAwesomeIcon icon={faPlusCircle} color="#003366" /> Entradas</NavDropdown.Item>
                                 </Link>
                                 <Link to='/Saidas' className="Link">
-                                    <NavDropdown.Item><FontAwesomeIcon icon={faMinusCircle} color="#003366" /> Saídas</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Saidas"><FontAwesomeIcon icon={faMinusCircle} color="#003366" /> Saídas</NavDropdown.Item>
                                 </Link>
                                 <Link to='/Dashboard' className="Link">
-                                    <NavDropdown.Item><FontAwesomeIcon icon={faChartSimple} color="#003366" /> Dashboard</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Dashboard"><FontAwesomeIcon icon={faChartSimple} color="#003366" /> Dashboard</NavDropdown.Item>
                                 </Link>
                                 <Link to='/Categorias' className="Link">
-                                    <NavDropdown.Item><FontAwesomeIcon icon={faListCheck} color="#003366" /> Categorias</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Categorias"><FontAwesomeIcon icon={faListCheck} color="#003366" /> Categorias</NavDropdown.Item>
                                 </Link>
                                 <Link to='/Contas' className="Link">
-                                    <NavDropdown.Item><FontAwesomeIcon icon={faCreditCard} color="#003366" /> Contas</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Contas"><FontAwesomeIcon icon={faCreditCard} color="#003366" /> Contas</NavDropdown.Item>
                                 </Link>
 
                                 <Link to='/TPPagamento' className="Link">
-                                    <NavDropdown.Item><FontAwesomeIcon icon={faMoneyBill} color="#003366" /> Tipo de Pagamento</NavDropdown.Item>
+                                    <NavDropdown.Item href="/TPPagamento"><FontAwesomeIcon icon={faMoneyBill} color="#003366" /> Tipo de Pagamento</NavDropdown.Item>
                                 </Link>
                                 <Link to='/Tableentradas' className="Link">
-                                    <NavDropdown.Item><FontAwesomeIcon icon={faChartSimple} color="#003366" /> Relatório entradas</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Tableentradas"><FontAwesomeIcon icon={faChartSimple} color="#003366" /> Relatório entradas</NavDropdown.Item>
                                 </Link>
                                 <Link to='/Tablesaidas' className="Link">
-                                    <NavDropdown.Item><FontAwesomeIcon icon={faChartSimple} color="#003366" /> Relatório saidas</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Tablesaidas"><FontAwesomeIcon icon={faChartSimple} color="#003366" /> Relatório saidas</NavDropdown.Item>
                                 </Link>
-                <button className="botao mb-3" onClick={Sair}>sair</button>
+                                <button className="botao mb-3" onClick={Sair}>sair</button>
 
                             </NavDropdown>
+
                         </div>
                     </div>
-                <button className="botao mb-3 btnnav" onClick={Sair}>sair</button>
+                    <button className="botao mb-3 btnnav" onClick={Sair}>sair</button>
                 </div>
             </div>
         </>
     )
 
-    
+
 }
 
 export default Sidebar
