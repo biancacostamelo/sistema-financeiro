@@ -41,7 +41,28 @@ const Tableentradas = () => {
                 <div className="div3">
                     <h2>Tabela de Entradas</h2>
                 </div>
-                <div className="div3 filtroData ">
+                <div className="div3 filtroDashboard">
+                            <div>
+                                <label>Data Início</label>
+                                <input
+                                    type="date"
+                                    value={startData}
+                                    onChange={(e) => setStartData(e.target.value)}
+                                    className="form-control"
+                                />
+                            </div>
+                            <div>
+                                <label>Data Fim</label>
+                                <input
+                                    type="date"
+                                    value={endData}
+                                    onChange={(e) => setEndData(e.target.value)}
+                                    className="form-control"
+                                />
+                            </div>
+                            <button onClick={Filtrar} className="btn mt-4" style={{ backgroundColor: '#003366', color: '#fff' }}>Filtrar</button>
+                    </div >
+                {/* <div className="div3 filtroData ">
                     <span>Filtrar</span>
                     <div className="position-relative">
                         <label htmlFor="startData" className="label">Data começo</label>
@@ -53,7 +74,7 @@ const Tableentradas = () => {
                         <input type="date" className="input2" name="endData" value={endData} onChange={(e) => setEndData(e.target.value)} />
                     </div>
                     <button className="botao2" onClick={Filtrar}>filtrar</button>
-                </div>
+                </div> */}
                 <div className="div2">
                     <table className="table">
                         <thead>

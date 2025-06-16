@@ -152,32 +152,32 @@ const Dashboard = () => {
     return (
         <div className="campo">
             <Pesquisa />
-            <div className="dados pt-4">
-                <div className="row mb-4">
-                    <div className="col-sm-4">
-                        <label>Data Início</label>
-                        <input
-                            type="date"
-                            value={startDate}
-                            onChange={(e) => setStartDate(e.target.value)}
-                            className="form-control"
-                        />
-                    </div>
-                    <div className="col-sm-4">
-                        <label>Data Fim</label>
-                        <input
-                            type="date"
-                            value={endDate}
-                            onChange={(e) => setEndDate(e.target.value)}
-                            className="form-control"
-                        />
-                    </div>
-                    <div className="col-sm-4">
-                        <button onClick={fetchData} className="btn mt-4" style={{ backgroundColor: '#003366', color: '#fff' }}>Filtrar</button>
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-12" style={{ width: '360px' }}>
-                            <div className="border  mt-4 p-3 d-flex align-items-center" style={{ width: '100%' }}>
+            <div className="dados pt-4 w-100">
+                <div className="row mb-4 w-60">
+                    <div className="col-xl-6 align-items-center d-flex"><h2>Dashboard</h2></div>
+                    <div className="col-xl-6 filtroDashboard">
+                            <div>
+                                <label>Data Início</label>
+                                <input
+                                    type="date"
+                                    value={startDate}
+                                    onChange={(e) => setStartDate(e.target.value)}
+                                    className="form-control"
+                                />
+                            </div>
+                            <div>
+                                <label>Data Fim</label>
+                                <input
+                                    type="date"
+                                    value={endDate}
+                                    onChange={(e) => setEndDate(e.target.value)}
+                                    className="form-control"
+                                />
+                            </div>
+                            <button onClick={fetchData} className="btn mt-4" style={{ backgroundColor: '#003366', color: '#fff' }}>Filtrar</button>
+                    </div >
+                    <div className="col-md-4">
+                            <div className="border  mt-4 p-3 d-flex align-items-center" style={{ width: '96%' }}>
                                 <FontAwesomeIcon icon={faCircleDollarToSlot} style={{ color: '#003366', height: '35px', marginRight: '20px', marginLeft: '20px' }} />
                                 <div>
                                     <h6 style={{ color: '#003366', margin: 0 }}>Saldo total</h6>
@@ -190,14 +190,43 @@ const Dashboard = () => {
                                     )}
                                 </div>
                             </div>
-                        </div>
+                    </div>
+                    <div className="col-md-4">
+                            <div className="border  mt-4 p-3 d-flex align-items-center" style={{ width: '96%' }}>
+                                <FontAwesomeIcon icon={faCircleDollarToSlot} style={{ color: '#003366', height: '35px', marginRight: '20px', marginLeft: '20px' }} />
+                                <div>
+                                    <h6 style={{ color: '#003366', margin: 0 }}>Saldo total</h6>
+                                    {saldototal.length > 0 && saidastotais.length > 0 ? (
+                                        <p style={{ fontSize: '15pt', margin: 0 }}>
+                                            ${saldototal[0]['SUM(preco)'] - saidastotais[0]['sum(preco)']}
+                                        </p>
+                                    ) : (
+                                        <p style={{ margin: 0 }}>Não há dados suficientes.</p>
+                                    )}
+                                </div>
+                            </div>
+                    </div>
+                    <div className="col-md-4">
+                            <div className="border  mt-4 p-3 d-flex align-items-center" style={{ width: '96%' }}>
+                                <FontAwesomeIcon icon={faCircleDollarToSlot} style={{ color: '#003366', height: '35px', marginRight: '20px', marginLeft: '20px' }} />
+                                <div>
+                                    <h6 style={{ color: '#003366', margin: 0 }}>Saldo total</h6>
+                                    {saldototal.length > 0 && saidastotais.length > 0 ? (
+                                        <p style={{ fontSize: '15pt', margin: 0 }}>
+                                            ${saldototal[0]['SUM(preco)'] - saidastotais[0]['sum(preco)']}
+                                        </p>
+                                    ) : (
+                                        <p style={{ margin: 0 }}>Não há dados suficientes.</p>
+                                    )}
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
             <div className="dados mb-3 pt-2">
                 <div className="row">
-                    <div className="col-sm-4 mb-3" style={{ width: '360px' }}>
-                        <div className="border p-4">
+                    <div className="col-sm-7 mb-3">
+                        <div className="border p-4 w-100">
                             <div className="d-flex">
                                 <h5 style={{ marginRight: '8px' }}>Top 5 maiores gastos</h5>
                                 <FontAwesomeIcon icon={faChartBar} color='#003366' />
@@ -207,7 +236,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4 mb-3" style={{ width: '360px' }}>
+                    <div className="col-md-5 mb-3" >
                         <div className="border p-4">
                             <div className="d-flex">
                                 <h5 style={{ marginRight: '8px' }}>Total de gastos por data</h5>
@@ -229,11 +258,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className="dados">
-                <div className="row">
-                    <div className="col-xxl-12" style={{ width: '360px' }}>
+                    <div className="col-xxl-4" style={{ width: '360px' }}>
                         <div className="border p-3">
                             <div className="d-flex">
                                 <h5 style={{ marginRight: '8px' }}>Gastos por Categoria</h5>
@@ -246,6 +271,22 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            {/* <div className="dados">
+                <div className="row">
+                    <div className="col-xxl-12" style={{ width: '360px' }}>
+                        <div className="border p-3">
+                            <div className="d-flex">
+                                <h5 style={{ marginRight: '8px' }}>Gastos por Categoria</h5>
+                                <FontAwesomeIcon icon={faChartColumn} color='#003366' />
+                            </div>
+                            <div style={{ height: '280px', width: '100%' }}>
+                                <Bar data={topGastosCategoria} options={{ responsive: true, maintainAspectRatio: false }} />
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div> */}
         </div>
     )
 }

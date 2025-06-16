@@ -274,6 +274,14 @@ select {
   float: right !important;
 }
 
+.filtroDashboard{
+    justify-content: end;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    /*justify-content-end flex-row d-flex gap-4*/
+}
+
 @media (max-width: 668px) {
   .formcadastro {
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px !important;
@@ -282,6 +290,17 @@ select {
 }
 
 @media (max-width: 1219px) {
+  .filtroDashboard{
+    justify-content: end;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90% !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem;
+    /*justify-content-end flex-row d-flex gap-4*/
+  }
+
   .anavbar {
     float: right;
   }
