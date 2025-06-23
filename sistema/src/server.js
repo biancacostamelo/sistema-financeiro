@@ -9,7 +9,7 @@ app.use(bodyparser.urlencoded({ extended: true }))
 
 const conexao = mysql.createConnection({
     host: 'localhost',
-    password: '',
+    password: 'root',
     database: 'financeiro',
     user: 'root'
 })
@@ -92,6 +92,55 @@ app.get('/filtroreceitas', (req, res) => {
         }
     })
 })
+
+app.get('/filtroreceitas1', (req, res) => {
+    const { startDate, endDate } = req.query
+    const query = 'SELECT * FROM entradas WHERE dataEntrada BETWEEN ? AND ? ORDER BY dataEntrada ASC'
+    conexao.query(query, [startDate, endDate], (erro, resultado) => {
+        if (erro) {
+            res.status(500).send('erro ao buscar dados')
+        } else {
+            res.json(resultado)
+        }
+    })
+})
+
+app.get('/gastosedespesas', (req, res) => {
+    const { startDate, endDate } = req.query;
+    
+    const query = `
+        SELECT 
+            id, 
+            preco, 
+            dataEntrada AS data, 
+            categoria,
+            'receita' AS tipo
+        FROM entradas
+        WHERE dataEntrada BETWEEN ? AND ?
+        
+        UNION ALL
+        
+        SELECT 
+            id,  
+            preco, 
+            dataSaidas AS data, 
+            categoria,
+            'despesa' AS tipo
+        FROM saidas
+        WHERE dataSaidas BETWEEN ? AND ?
+        
+        ORDER BY data ASC;
+    `;
+
+    conexao.query(query, [startDate, endDate, startDate, endDate], (erro, resultado) => {
+        if (erro) {
+            res.status(500).send('Erro ao buscar dados');
+        } else {
+            res.json(resultado);
+        }
+    });
+});
+
 
 app.get('/filtrodespesas', (req, res) => {
     const { startData, endData } = req.query
