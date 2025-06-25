@@ -227,60 +227,29 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+
             <div className="dados mb-3 pt-2">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-7 mb-3">
-                            <div className="border2 p-4">
-                                <div className="d-flex">
-                                    <h5 style={{ marginRight: '8px' }}>Total de gastos por data</h5>
-                                    <FontAwesomeIcon icon={faChartLine} color='#003366' />
-                                </div>
-                                <div style={{ height: '280px', width: '100%' }}>
-                                    <Line data={Gastosaolongodotempo} options={{ responsive: true, maintainAspectRatio: false }} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-5 mb-3">
-                            <div className="border2 p-4">
-                                {entradas.map((e) => (
-                                    <>
-                                        <div className="row py-1">
-                                            <div className="col-2 d-flex justify-content-center align-items-center">
-                                                <span>{e.id}</span>
-                                            </div>
-                                            <div className="col-6 flex-column d-flex justify-content-center">
-                                                <span>{e.categoria}</span>
-                                                <p className="text-secondary p-0 m-0">
-                                                    {new Date(e.data).toLocaleDateString('pt-BR')}
-                                                </p>
-                                            </div>
-                                            <div className="col-4 d-flex justify-content-center align-items-center">
-                                                {e.tipo === 'despesa' ?
-                                                    <span className="text-danger">- R${e.preco}</span>
-                                                    :
-                                                    <span className="text-success">+ R${e.preco}</span>
-                                                }
-                                            </div>
-                                        </div>
-                                        <hr />
-                                    </>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="col-xl-4 mb-3">
-                            <div className="border2 p-4">
-                                <div className="d-flex">
-                                    <h5 style={{ marginRight: '8px' }}>Gastos por Tipo de Pagamento</h5>
-                                    <FontAwesomeIcon icon={faChartPie} color='#003366' />
-                                </div>
-                                <div style={{ height: '280px', width: '100%' }}>
-                                    <Pie data={topGastosPag} options={{ responsive: true, maintainAspectRatio: false }} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xxl-4 mb-3">
-                            <div className="border2 p-3">
+                
+  <div className="container">
+    <div className="row">
+      {/* Coluna principal com gráfico de linha */}
+      <div className="col-md-7 mb-3">
+        <div className="row">
+            <div className="col-12">
+                <div className="border2 p-4">
+          <div className="d-flex">
+            <h5 style={{ marginRight: '8px' }}>Total de gastos por data</h5>
+            <FontAwesomeIcon icon={faChartLine} color='#003366' />
+          </div>
+          <div style={{ height: '280px', width: '100%' }}>
+            <Line data={Gastosaolongodotempo} options={{ responsive: true, maintainAspectRatio: false }} />
+          </div>
+        </div>                 
+            </div>
+        </div>
+        <div className="row mt-4">
+            <div className="col-6">
+                 <div className="border2 p-3">
                                 <div className="d-flex">
                                     <h5 style={{ marginRight: '8px' }}>Top 5 maiores gastos</h5>
                                     <FontAwesomeIcon icon={faChartBar} color='#003366' />
@@ -289,21 +258,81 @@ const Dashboard = () => {
                                     <Bar data={topProdutosGastos} options={{ responsive: true, maintainAspectRatio: false, indexAxis: 'y' }} />
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-xxl-4 mb-3">
-                            <div className="border2 p-3">
+            </div>
+            <div className="col-6">
+                <div className="border2 p-4">
                                 <div className="d-flex">
-                                    <h5 style={{ marginRight: '8px' }}>Gastos por Categoria</h5>
-                                    <FontAwesomeIcon icon={faChartColumn} color='#003366' />
+                                    <h5 style={{ marginRight: '8px' }}>Gastos por Tipo de Pagamento</h5>
+                                    <FontAwesomeIcon icon={faChartPie} color='#003366' />
                                 </div>
                                 <div style={{ height: '280px', width: '100%' }}>
-                                    <Bar data={topGastosCategoria} options={{ responsive: true, maintainAspectRatio: false }} />
+                                    <Pie data={topGastosPag} options={{ responsive: true, maintainAspectRatio: false }} />
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+        </div>
+       
+      </div>
+
+      {/* Agrupamento das colunas menores dentro de uma col-md-5 */}
+      <div className="col-md-5">
+        {/* Primeiro card (entradas) */}
+        <div className="mb-3 border2 p-4">
+          {entradas.map((e) => (
+            <div key={e.id}>
+              <div className="row py-1">
+                <div className="col-2 d-flex justify-content-center align-items-center">
+                  <span>{e.id}</span>
+                </div>
+                <div className="col-6 flex-column d-flex justify-content-center">
+                  <span>{e.categoria}</span>
+                  <p className="text-secondary p-0 m-0">
+                    {new Date(e.data).toLocaleDateString('pt-BR')}
+                  </p>
+                </div>
+                <div className="col-4 d-flex justify-content-center align-items-center">
+                  {e.tipo === 'despesa' ? (
+                    <span className="text-danger">- R${e.preco}</span>
+                  ) : (
+                    <span className="text-success">+ R${e.preco}</span>
+                  )}
+                </div>
+              </div>
+              <hr />
+            </div>
+          ))}
+        </div>
+
+        {/* Segundo card (Gastos por Tipo de Pagamento) */}
+        
+      </div>
+
+      {/* Linha separada para os 2 últimos gráficos */}
+      <div className="col-xl-6 mb-3">
+        <div className="border2 p-3">
+          <div className="d-flex">
+            <h5 style={{ marginRight: '8px' }}>Top 5 maiores gastos</h5>
+            <FontAwesomeIcon icon={faChartBar} color='#003366' />
+          </div>
+          <div style={{ height: '280px', width: '100%' }}>
+            <Bar data={topProdutosGastos} options={{ responsive: true, maintainAspectRatio: false, indexAxis: 'y' }} />
+          </div>
+        </div>
+      </div>
+      <div className="col-xl-6 mb-3">
+        <div className="border2 p-3">
+          <div className="d-flex">
+            <h5 style={{ marginRight: '8px' }}>Gastos por Categoria</h5>
+            <FontAwesomeIcon icon={faChartColumn} color='#003366' />
+          </div>
+          <div style={{ height: '280px', width: '100%' }}>
+            <Bar data={topGastosCategoria} options={{ responsive: true, maintainAspectRatio: false }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
             {/* <div className="dados">
                 <div className="row">
                     <div className="col-xxl-12" style={{ width: '360px' }}>
