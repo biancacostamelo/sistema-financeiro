@@ -1,70 +1,64 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.js";
-
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase";
+import { useHistory } from "react-router-dom";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 
 function Login({navigation}) {
+  const history = useHistory();
   const [isCadastro, setIsCadastro] = useState(false);
 
   const [email, setEmail] = useState("");
   const [nome, setNome] = useState("");
-  const [senha, setSenha] = useState("");
+  const [password, setPassword] = useState("");
   const [telefone, setTelefone] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async () => {
-    try {
-      await signInWithEmailAndPassword(auth, email, senha);
-      navigation.replace("Home");
-    } catch (err) {
-      setError(err + "erro ao fazer o login . verifique suas credenciais");
-      alert("Erro ao fazer o login. Verifique suas credenciais.");
-    }
-  };
+  const handleLogin = async (e) => {
+  e.preventDefault();
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    history.replace("/Dashboard");
+  } catch (err) {
+    console.error("Erro no login:", err);
+    setError("Erro ao fazer o login: " + err.message);
+    alert("Erro ao fazer o login: " + err.message);
+  }
+};
 
-  const handleCadastro = async () => {
-    if (!nome || !email || !senha) {
-      setError("Todos os campos são obrigatórios.");
-      return;
-    }
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        telefone,
-        senha
-      );
-      const user = userCredential.user;
+const handleCadastro = async (e) => {
+  e.preventDefault();
 
-      await setDoc(doc(db, "usuario", user.uid), {
-        nome,
-        telefone,
-        email
-      });
+  if (!nome || !email || !password || !telefone) {
+    setError("Todos os campos são obrigatórios.");
+    return;
+  }
 
-      alert("Sucesso!", "Usuário cadastrado com sucesso!", [
-        { text: "OK", onPress: () => navigation.replace("Home") },
-      ]);
-    } catch (err) {
-      alert("Erro", "Erro não foi possivel cadastrar. Tente novamente!");
-    }
-  };
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
 
-  // const handleLogin = (e) => {
-  //   e.preventDefault()
-  //   history.push('/Dashboard')
-  // }
+    await setDoc(doc(db, "usuarios", user.uid), {
+      nome,
+      telefone,
+    });
 
-  // const handleCadastro = (e) => {
-  //   e.preventDefault()
-  //   alert('Cadastrou com sucesso!')
-  //   setIsCadastro(false) // Volta para o login após cadastro
-  // }
+    alert("Usuário cadastrado com sucesso!");
+    history.replace("/Dashboard");
+
+  } catch (err) {
+    console.error("Erro no cadastro:", err); // Mostra o erro no console
+    setError("Erro ao cadastrar: " + err.message);
+    alert("Erro ao cadastrar: " + err.message);
+  }
+};
 
   const toggleFormulario = () => {
     setIsCadastro((prev) => !prev);
@@ -74,8 +68,23 @@ function Login({navigation}) {
     <div className="bg-login">
       {isCadastro ? (
         <form onSubmit={handleCadastro}>
-          <div className="card-login">
+          <div className="card-login gap-3">
             <p className="text-login">Faça seu cadastro</p>
+            <div className="campoLabel w-100">
+              <label htmlFor="nome" className="label">
+                Nome
+              </label>
+              <input
+                required
+                type="text"
+                id="nome"
+                name="nome"
+                className="input"
+                placeholder="Insira seu email"
+                onChange={(e)=>setNome(e.target.value)}
+                value={nome}
+              />
+            </div>
             <div className="campoLabel w-100">
               <label htmlFor="email" className="label">
                 E-mail
@@ -84,9 +93,10 @@ function Login({navigation}) {
                 required
                 type="email"
                 id="email"
+                name="email"
                 className="input"
                 placeholder="Insira seu email"
-                onChangeText={setEmail}
+                onChange={(e)=>setEmail(e.target.value)}
                 value={email}
               />
             </div>
@@ -96,11 +106,12 @@ function Login({navigation}) {
               </label>
               <input
                 required
-                type="text"
+                type="number"
                 id="telefone"
+                name="telefone"
                 className="input"
                 placeholder="Insira seu telefone"
-                onChangeText={setTelefone}
+                onChange={(e)=>setTelefone(e.target.value)}
                 value={telefone}
               />
             </div>
@@ -111,11 +122,12 @@ function Login({navigation}) {
               <input
                 required
                 type="password"
-                id="senha"
+                id="password"
+                name="password"
                 className="input"
                 placeholder="Crie sua senha"
-                onChangeText={setSenha}
-                value={senha}
+                onChange={(e)=>setPassword(e.target.value)}
+                value={password}
               />
             </div>
             <button className="botao" type="submit">
@@ -126,7 +138,7 @@ function Login({navigation}) {
         </form>
       ) : (
         <form onSubmit={handleLogin}>
-          <div className="card-login">
+          <div className="card-login gap-3">
             <p className="text-login">Faça seu login</p>
             <div className="campoLabel w-100">
               <label htmlFor="email" className="label">
@@ -136,24 +148,26 @@ function Login({navigation}) {
                 required
                 type="email"
                 id="email"
+                name="email"
                 className="input"
                 placeholder="Insira seu email"
-                onChangeText={setEmail}
+                onChange={(e)=>setEmail(e.target.value)}
                 value={email}
               />
             </div>
             <div className="campoLabel w-100">
-              <label htmlFor="senha" className="label">
+              <label htmlFor="password" className="label">
                 Senha
               </label>
               <input
                 required
                 type="password"
-                id="senha"
+                id="password"
+                name="password"
                 className="input"
                 placeholder="Insira sua senha"
-                onChangeText={setSenha}
-                value={senha}
+                onChange={(e)=>setPassword(e.target.value)}
+                value={password}
               />
             </div>
             <a href="#ooo" className="align-self-end text-esqueciminhasenha">
@@ -161,6 +175,7 @@ function Login({navigation}) {
             </a>
             <button className="botao" type="submit">
               Login
+              {error ? <p className="text-danger">{error}</p> : null}
             </button>
           </div>
         </form>
